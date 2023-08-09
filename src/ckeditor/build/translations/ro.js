@@ -1,6 +1,6 @@
 ;(function (e) {
-  const t = (e['ro'] = e['ro'] || {})
-  t.dictionary = Object.assign(t.dictionary || {}, {
+  const i = (e['ro'] = e['ro'] || {})
+  i.dictionary = Object.assign(i.dictionary || {}, {
     '%0 of %1': '%0 din %1',
     Accept: 'Acceptă',
     'Align cell text to the bottom': 'Alinează textul celulei jos',
@@ -9,11 +9,15 @@
     'Align cell text to the middle': 'Alinează textul celulei la mijloc',
     'Align cell text to the right': 'Alinează textul celulei la dreapta',
     'Align cell text to the top': 'Alinează textul celulei sus',
+    'Align center': 'Aliniază la centru',
+    'Align left': 'Aliniază la stânga',
+    'Align right': 'Aliniază la dreapta',
     'Align table to the left': 'Alinează tabela la stânga',
     'Align table to the right': 'Alinează tabela la dreapta',
     Alignment: 'Aliniere',
     Aquamarine: 'Acvamarin',
     Background: 'Fundal',
+    Big: 'Mare',
     Black: 'Negru',
     'Block quote': 'Bloc citat',
     Blue: 'Albastru',
@@ -39,11 +43,13 @@
     Decimal: 'Număr',
     'Decimal with leading zero': 'Număr cu zero la început ',
     'Decrease indent': 'Micșorează indent',
+    Default: 'Implicită',
     'Delete column': 'Șterge coloană',
     'Delete row': 'Șterge rând',
     'Dim grey': 'Gri slab',
     Dimensions: 'Dimensiuni',
     Disc: 'Disc',
+    'Document colors': 'Culorile din document',
     Dotted: 'Punctată',
     Double: 'Dublă',
     Downloadable: 'Descărcabil',
@@ -56,6 +62,10 @@
     'Editor toolbar': 'Bară editor',
     'Enter image caption': 'Introdu titlul descriptiv al imaginii',
     'Enter table caption': 'Adaugă subtitlul tabelei',
+    'Font Background Color': 'Culoarea de fundal a fontului',
+    'Font Color': 'Culoare font',
+    'Font Family': 'Familie font',
+    'Font Size': 'Dimensiune font',
     'Full size image': 'Imagine mărime completă',
     Green: 'Verde',
     Grey: 'Gri',
@@ -72,6 +82,7 @@
     Height: 'Înălțime',
     HEX: 'HEX',
     'Horizontal text alignment toolbar': 'Toolbar aliniere text orizontală',
+    Huge: 'Foarte mare',
     'Image resize list': 'Lista cu mărimi de redimensionare',
     'Image toolbar': 'Bară imagine',
     'image widget': 'widget imagine',
@@ -90,6 +101,7 @@
     'Insert table': 'Inserează tabel',
     Inset: 'Inserează',
     Italic: 'Cursiv',
+    Justify: 'Aliniază stânga-dreapta',
     'Justify cell text': 'Textul celulei justify',
     'Left aligned image': 'Imagine aliniată la stânga',
     'Light blue': 'Albastru deschis',
@@ -129,7 +141,6 @@
     Red: 'Roșu',
     Redo: 'Revenire',
     'Remove color': 'Șterge culoare',
-    'Remove Format': 'Șterge formatare',
     'Resize image': 'Redimensionează imaginea',
     'Resize image to %0': 'Redimensionează imaginea la %0',
     'Resize image to the original size': 'Redimensionează imaginea la mărimea originală',
@@ -145,6 +156,7 @@
     'Select row': 'Selectează linia',
     'Show more items': 'Arată mai multe elemente',
     'Side image': 'Imagine laterală',
+    Small: 'Mică',
     Solid: 'Solidă',
     'Split cell horizontally': 'Scindează celula pe orizontală',
     'Split cell vertically': 'Scindează celula pe verticală',
@@ -159,6 +171,8 @@
     'Table cell text alignment': 'Alinierea textului celulei tabelei',
     'Table properties': 'Proprietățile tabelei',
     'Table toolbar': 'Bară tabel',
+    'Text alignment': 'Aliniere text',
+    'Text alignment toolbar': 'Bara aliniere text',
     'Text alternative': 'Text alternativ',
     'The color is invalid. Try "#FF0000" or "rgb(255,0,0)" or "red".':
       'Culoarea este invalidă. Încearcă "#FF0000" sau "rgb(255,0,0)" sau "red".',
@@ -167,6 +181,7 @@
       'Valoarea este invalidă. Încearcă "10px" sau "2em" sau simplu "2".',
     'This link has no URL': 'Acest link nu are niciun URL',
     'This media URL is not supported.': 'Acest URL media nu este suportat.',
+    Tiny: 'Foarte mică',
     'Tip: Paste the URL into the content to embed faster.':
       'Sugestie: adaugă URL-ul în conținut pentru a fi adăugat mai rapid.',
     'To-do List': 'Listă cu activități',
@@ -200,7 +215,7 @@
     'Wrap text': 'Încadrare text',
     Yellow: 'Galben',
   })
-  t.getPluralForm = function (e) {
+  i.getPluralForm = function (e) {
     return e == 1 ? 0 : e % 100 > 19 || (e % 100 == 0 && e != 0) ? 2 : 1
   }
 })(window.CKEDITOR_TRANSLATIONS || (window.CKEDITOR_TRANSLATIONS = {}))

@@ -5,20 +5,21 @@
 
 import { ClassicEditor } from '@ckeditor/ckeditor5-editor-classic'
 
+import { Alignment } from '@ckeditor/ckeditor5-alignment'
 import { Autoformat } from '@ckeditor/ckeditor5-autoformat'
-import { Bold, Italic, Strikethrough, Underline } from '@ckeditor/ckeditor5-basic-styles'
+import { Bold, Italic, Underline } from '@ckeditor/ckeditor5-basic-styles'
 import { BlockQuote } from '@ckeditor/ckeditor5-block-quote'
 import { CloudServices } from '@ckeditor/ckeditor5-cloud-services'
 import { Essentials } from '@ckeditor/ckeditor5-essentials'
+import { FontBackgroundColor, FontColor, FontFamily, FontSize } from '@ckeditor/ckeditor5-font'
 import { Heading } from '@ckeditor/ckeditor5-heading'
-import { Image, ImageCaption, ImageStyle, ImageToolbar, ImageUpload } from '@ckeditor/ckeditor5-image'
+import { AutoImage, Image, ImageCaption, ImageStyle, ImageToolbar, ImageUpload } from '@ckeditor/ckeditor5-image'
 import { Indent } from '@ckeditor/ckeditor5-indent'
 import { Link } from '@ckeditor/ckeditor5-link'
 import { List } from '@ckeditor/ckeditor5-list'
 import { MediaEmbed } from '@ckeditor/ckeditor5-media-embed'
 import { Paragraph } from '@ckeditor/ckeditor5-paragraph'
 import { PasteFromOffice } from '@ckeditor/ckeditor5-paste-from-office'
-import { RemoveFormat } from '@ckeditor/ckeditor5-remove-format'
 import { Table, TableToolbar } from '@ckeditor/ckeditor5-table'
 import { TextTransformation } from '@ckeditor/ckeditor5-typing'
 
@@ -27,11 +28,17 @@ import { TextTransformation } from '@ckeditor/ckeditor5-typing'
 
 class Editor extends ClassicEditor {
   public static override builtinPlugins = [
+    Alignment,
+    AutoImage,
     Autoformat,
     BlockQuote,
     Bold,
     CloudServices,
     Essentials,
+    FontBackgroundColor,
+    FontColor,
+    FontFamily,
+    FontSize,
     Heading,
     Image,
     ImageCaption,
@@ -45,8 +52,6 @@ class Editor extends ClassicEditor {
     MediaEmbed,
     Paragraph,
     PasteFromOffice,
-    RemoveFormat,
-    Strikethrough,
     Table,
     TableToolbar,
     TextTransformation,
@@ -59,7 +64,6 @@ class Editor extends ClassicEditor {
         'heading',
         '|',
         'bold',
-        'underline',
         'italic',
         'link',
         'bulletedList',
@@ -70,13 +74,20 @@ class Editor extends ClassicEditor {
         '|',
         'imageUpload',
         'blockQuote',
-        'insertTable',
         'mediaEmbed',
         'undo',
         'redo',
-        'removeFormat',
-        'strikethrough',
+        'fontBackgroundColor',
+        'fontColor',
+        'fontFamily',
+        'underline',
+        'fontSize',
+        '-',
+        'alignment',
+        '-',
+        'insertTable',
       ],
+      shouldNotGroupWhenFull: true,
     },
     language: 'en',
     image: {

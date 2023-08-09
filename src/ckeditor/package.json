@@ -8,12 +8,14 @@
   "main": "./build/ckeditor.js",
   "types": "./build/ckeditor.d.ts",
   "dependencies": {
+    "@ckeditor/ckeditor5-alignment": "39.0.0",
     "@ckeditor/ckeditor5-autoformat": "39.0.0",
     "@ckeditor/ckeditor5-basic-styles": "39.0.0",
     "@ckeditor/ckeditor5-block-quote": "39.0.0",
     "@ckeditor/ckeditor5-cloud-services": "39.0.0",
     "@ckeditor/ckeditor5-editor-classic": "39.0.0",
     "@ckeditor/ckeditor5-essentials": "39.0.0",
+    "@ckeditor/ckeditor5-font": "39.0.0",
     "@ckeditor/ckeditor5-heading": "39.0.0",
     "@ckeditor/ckeditor5-image": "39.0.0",
     "@ckeditor/ckeditor5-indent": "39.0.0",
@@ -22,7 +24,6 @@
     "@ckeditor/ckeditor5-media-embed": "39.0.0",
     "@ckeditor/ckeditor5-paragraph": "39.0.0",
     "@ckeditor/ckeditor5-paste-from-office": "39.0.0",
-    "@ckeditor/ckeditor5-remove-format": "39.0.0",
     "@ckeditor/ckeditor5-table": "39.0.0",
     "@ckeditor/ckeditor5-typing": "39.0.0"
   },

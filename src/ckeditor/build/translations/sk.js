@@ -1,6 +1,6 @@
 ;(function (e) {
-  const o = (e['sk'] = e['sk'] || {})
-  o.dictionary = Object.assign(o.dictionary || {}, {
+  const a = (e['sk'] = e['sk'] || {})
+  a.dictionary = Object.assign(a.dictionary || {}, {
     '%0 of %1': '%0 z %1',
     Accept: 'Potvrdiť',
     'Align cell text to the bottom': 'Zarovnať text bunky nadol',
@@ -9,11 +9,15 @@
     'Align cell text to the middle': 'Zarovnať text bunky na stred',
     'Align cell text to the right': 'Zarovnať text bunky doprava',
     'Align cell text to the top': 'Zarovnať text bunky nahor',
+    'Align center': 'Zarovnať na stred',
+    'Align left': 'Zarovnať vľavo',
+    'Align right': 'Zarovnať vpravo',
     'Align table to the left': 'Zarovnať tabuľku doľava',
     'Align table to the right': 'Zarovnať tabuľku doprava',
     Alignment: 'Zarovnanie',
     Aquamarine: 'Akvamarínová',
     Background: 'Pozadie',
+    Big: 'Veľké',
     Black: 'Čierna',
     'Block quote': 'Citát',
     Blue: 'Modrá',
@@ -39,11 +43,13 @@
     Decimal: 'Čísla',
     'Decimal with leading zero': 'Čísla s nulou na začiatku',
     'Decrease indent': 'Zmenšiť odsadenie',
+    Default: 'Predvolené',
     'Delete column': 'Odstrániť stĺpec',
     'Delete row': 'Odstrániť riadok',
     'Dim grey': 'Tmavosivá',
     Dimensions: 'Rozmery',
     Disc: 'Plný kruh',
+    'Document colors': 'Farby dokumentu',
     Dotted: 'Bodkovaná',
     Double: 'Dvojitá',
     Downloadable: 'Na stiahnutie',
@@ -56,6 +62,10 @@
     'Editor toolbar': 'Panel nástrojov editora',
     'Enter image caption': 'Vložte popis obrázka',
     'Enter table caption': 'Zadajte popis tabuľky',
+    'Font Background Color': 'Farba zvýraznenia textu',
+    'Font Color': 'Farba písma',
+    'Font Family': 'Názov písma',
+    'Font Size': 'Veľkosť písma',
     'Full size image': 'Obrázok v plnej veľkosti',
     Green: 'Zelená',
     Grey: 'Sivá',
@@ -72,6 +82,7 @@
     Height: 'Výška',
     HEX: 'HEX',
     'Horizontal text alignment toolbar': 'Horizontálne zarovnanie textu v panely',
+    Huge: 'Veľmi veľké',
     'Image resize list': 'Zoznam možností zmeny veľkosti',
     'Image toolbar': 'Panel nástrojov obrázka',
     'image widget': 'widget obrázka',
@@ -90,6 +101,7 @@
     'Insert table': 'Vložiť tabuľku',
     Inset: 'Vložená z vnútra',
     Italic: 'Kurzíva',
+    Justify: 'Do bloku',
     'Justify cell text': 'Zarovnať text bunky z oboch strán',
     'Left aligned image': 'Zarovnať vľavo',
     'Light blue': 'Bledomodrá',
@@ -129,7 +141,6 @@
     Red: 'Červená',
     Redo: 'Znova',
     'Remove color': 'Zrušiť farbu',
-    'Remove Format': 'Vyčistiť formátovanie',
     'Resize image': 'Zmeniť veľkosť obrázka',
     'Resize image to %0': 'Zmeniť veľkosť na %0',
     'Resize image to the original size': 'Zmeniť veľkosť na pôvodnú',
@@ -145,6 +156,7 @@
     'Select row': 'Vybrať riadok',
     'Show more items': 'Zobraziť viac položiek',
     'Side image': 'Bočný obrázok',
+    Small: 'Malé',
     Solid: 'Plná',
     'Split cell horizontally': 'Rozdeliť bunku vodorovne',
     'Split cell vertically': 'Rozdeliť bunku zvislo',
@@ -159,6 +171,8 @@
     'Table cell text alignment': 'Zarovnanie textu v bunke',
     'Table properties': 'Vlastnosti tabuľky',
     'Table toolbar': 'Panel nástrojov tabuľky',
+    'Text alignment': 'Zarovnanie textu',
+    'Text alignment toolbar': 'Panel nástrojov zarovnania textu',
     'Text alternative': 'Alternatívny text',
     'The color is invalid. Try "#FF0000" or "rgb(255,0,0)" or "red".':
       'Farba má nesprávny formát. Skúste "#FF0000", "rgb(255,0,0)" alebo "red".',
@@ -167,6 +181,7 @@
       'Hodnota je nesprávna. Skúste "10px", "2em" alebo jednoducho "2".',
     'This link has no URL': 'Tento odkaz nemá nastavenú URL adresu',
     'This media URL is not supported.': 'URL média nie je podporovaná.',
+    Tiny: 'Veľmi malé',
     'Tip: Paste the URL into the content to embed faster.': 'Tip: URL adresu média vložte do obsahu.',
     'To-do List': 'To-do zoznam',
     'Toggle caption off': 'Vypnúť titulok',
@@ -199,7 +214,7 @@
     'Wrap text': 'Obtekanie textu',
     Yellow: 'Žltá',
   })
-  o.getPluralForm = function (e) {
+  a.getPluralForm = function (e) {
     return e % 1 == 0 && e == 1 ? 0 : e % 1 == 0 && e >= 2 && e <= 4 ? 1 : e % 1 != 0 ? 2 : 3
   }
 })(window.CKEDITOR_TRANSLATIONS || (window.CKEDITOR_TRANSLATIONS = {}))

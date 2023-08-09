@@ -1,6 +1,6 @@
 ;(function (e) {
-  const i = (e['hr'] = e['hr'] || {})
-  i.dictionary = Object.assign(i.dictionary || {}, {
+  const a = (e['hr'] = e['hr'] || {})
+  a.dictionary = Object.assign(a.dictionary || {}, {
     '%0 of %1': '%0 od %1',
     Accept: 'Prihvati',
     'Align cell text to the bottom': 'Tekst ćelije poravnaj prema dolje',
@@ -9,11 +9,15 @@
     'Align cell text to the middle': 'Tekst ćelije poravnaj u sredinu',
     'Align cell text to the right': 'Tekst ćelije poravnaj udesno',
     'Align cell text to the top': 'Tekst ćelije poravnaj prema gore',
+    'Align center': 'Poravnaj po sredini',
+    'Align left': 'Poravnaj ulijevo',
+    'Align right': 'Poravnaj udesno',
     'Align table to the left': 'Poravnaj tablicu ulijevo',
     'Align table to the right': 'Poravnaj tablicu udesno',
     Alignment: 'Poravnanje',
     Aquamarine: 'Akvamarin',
     Background: 'Pozadina',
+    Big: 'Veliki',
     Black: 'Crna',
     'Block quote': 'Blok citat',
     Blue: 'Plava',
@@ -39,11 +43,13 @@
     Decimal: 'Decimalni',
     'Decimal with leading zero': 'Decimalni s vodećom nulom',
     'Decrease indent': 'Umanji uvlačenje',
+    Default: 'Podrazumijevano',
     'Delete column': 'Obriši kolonu',
     'Delete row': 'Obriši red',
     'Dim grey': 'Tamnosiva',
     Dimensions: 'Dimenzije',
     Disc: 'Disk',
+    'Document colors': 'Boje dokumenta',
     Dotted: 'Točkasta',
     Double: 'Dvostruka',
     Downloadable: 'Moguće preuzeti',
@@ -56,6 +62,10 @@
     'Editor toolbar': 'Traka uređivača',
     'Enter image caption': 'Unesite naslov slike',
     'Enter table caption': 'Unesite natpis',
+    'Font Background Color': 'Pozadinska Boja Fonta',
+    'Font Color': 'Boja Fonta',
+    'Font Family': 'Obitelj fonta',
+    'Font Size': 'Veličina fonta',
     'Full size image': 'Slika pune veličine',
     Green: 'Zelena',
     Grey: 'Siva',
@@ -72,6 +82,7 @@
     Height: 'Visina',
     HEX: '',
     'Horizontal text alignment toolbar': 'Alatna traka za horizontalno poravnanje teksta',
+    Huge: 'Ogroman',
     'Image resize list': 'Lista veličina slika',
     'Image toolbar': 'Traka za slike',
     'image widget': 'Slika widget',
@@ -90,6 +101,7 @@
     'Insert table': 'Ubaci tablicu',
     Inset: '',
     Italic: 'Ukošeno',
+    Justify: 'Razvuci',
     'Justify cell text': 'Razvuci tekst ćelije',
     'Left aligned image': 'Lijevo poravnata slika',
     'Light blue': 'Svijetloplava',
@@ -129,7 +141,6 @@
     Red: 'Crvena',
     Redo: 'Ponovi',
     'Remove color': 'Ukloni boju',
-    'Remove Format': 'Ukloni format',
     'Resize image': 'Promijeni veličinu slike',
     'Resize image to %0': 'Promijeni veličinu slike u %0',
     'Resize image to the original size': 'Vrati veličinu slike na originalnu veličinu',
@@ -145,6 +156,7 @@
     'Select row': 'Odaberi redak',
     'Show more items': 'Prikaži više stavaka',
     'Side image': 'Slika sa strane',
+    Small: 'Mali',
     Solid: 'Neprekidna',
     'Split cell horizontally': 'Razdvoji ćeliju vodoravno',
     'Split cell vertically': 'Razdvoji ćeliju okomito',
@@ -159,6 +171,8 @@
     'Table cell text alignment': 'Poravnanje teksta ćelije tablice',
     'Table properties': 'Svojstva tablice',
     'Table toolbar': 'Traka za tablice',
+    'Text alignment': 'Poravnanje teksta',
+    'Text alignment toolbar': 'Traka za poravnanje',
     'Text alternative': 'Alternativni tekst',
     'The color is invalid. Try "#FF0000" or "rgb(255,0,0)" or "red".':
       'Neispravna boja. Pokušajte "#FF0000" ili "rgb(255,0,0)" ili "red".',
@@ -167,6 +181,7 @@
       'Neispravna vrijednost. Pokušajte "10px" ili "2em" ili jednostavno "2".',
     'This link has no URL': 'Ova veza nema URL',
     'This media URL is not supported.': 'URL nije podržan.',
+    Tiny: 'Sićušan',
     'Tip: Paste the URL into the content to embed faster.': 'Natuknica: Za brže ugrađivanje zalijepite URL u sadržaj.',
     'To-do List': 'Lista zadataka',
     'Toggle caption off': 'Isključite natpis',
@@ -199,7 +214,7 @@
     'Wrap text': 'Prelamanje teksta',
     Yellow: 'Žuta',
   })
-  i.getPluralForm = function (e) {
+  a.getPluralForm = function (e) {
     return e % 10 == 1 && e % 100 != 11 ? 0 : e % 10 >= 2 && e % 10 <= 4 && (e % 100 < 10 || e % 100 >= 20) ? 1 : 2
   }
 })(window.CKEDITOR_TRANSLATIONS || (window.CKEDITOR_TRANSLATIONS = {}))

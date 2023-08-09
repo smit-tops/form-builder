@@ -6,16 +6,15 @@ import FieldFooter from '../../FormGenrator/FieldFooter'
 import { FormField } from '../../../types/fields'
 import useFieldSet from '../../../hook/useFieldSet'
 
-export default function LabelField({ field, onChange }: { field: FormField; onChange: any }) {
+export default function LabelField({ field, onChange, provided }: { field: FormField; onChange: any; provided: any }) {
   const { isEdit, handleLabelChange, handleEdit, handleSave, handleCancel, handleDelete, renderData } = useFieldSet(
     field,
     onChange,
   )
-
   return (
     <Col xs={12}>
       <Card>
-        <FieldHeader onDelete={handleDelete} onEdit={handleEdit} title="TEXT INPUT" />
+        <FieldHeader onDelete={handleDelete} onEdit={handleEdit} title={field.fieldName} provided={provided} />
         <Card.Body className={isEdit ? '' : 'h5 fw-bold'}>
           <ItemLabel
             edit={isEdit}

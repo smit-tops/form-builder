@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { CKEditor } from '@ckeditor/ckeditor5-react'
 // import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
-import Editor from 'ckeditor5-custom-build/build/ckeditor'
+import ClassicEditor from 'ckeditor5-custom-build/build/ckeditor'
 
 const ItemLabel = ({
   value = 'Label Text',
@@ -40,7 +40,7 @@ const ItemLabel = ({
     <div>
       <label htmlFor="editor">{label || 'Question'}</label>
       <CKEditor
-        editor={Editor}
+        editor={ClassicEditor}
         data={data}
         id={'editor'}
         config={{

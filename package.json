@@ -1,7 +1,7 @@
 {
-  "name": "@clarity/form-builder",
+  "name": "form-builder",
   "private": false,
-  "version": "1.0.0",
+  "version": "1.0.4",
   "packageManager": "pnpm@8.4.0",
   "main": "./dist/form-builder.umd.js",
   "module": "./dist/form-builder.es.js",
@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@ckeditor/ckeditor5-react": "^6.1.0",
+    "@types/react-beautiful-dnd": "^13.1.4",
     "ckeditor5-custom-build": "file:src/ckeditor",
     "react": "18.2.0",
     "react-beautiful-dnd": "^13.1.1",

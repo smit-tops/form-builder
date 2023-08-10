@@ -4,9 +4,9 @@ dependencies:
   '@ckeditor/ckeditor5-react':
     specifier: ^6.1.0
     version: 6.1.0(@ckeditor/ckeditor5-core@39.0.0)(@ckeditor/ckeditor5-engine@39.0.0)(@ckeditor/ckeditor5-utils@39.0.0)(@ckeditor/ckeditor5-watchdog@39.0.0)(react@18.2.0)
-  '@types/react-beautiful-dnd':
-    specifier: ^13.1.4
-    version: 13.1.4
+  '@types/uuid':
+    specifier: ^9.0.2
+    version: 9.0.2
   ckeditor5-custom-build:
     specifier: file:src/ckeditor
     version: file:src/ckeditor
@@ -25,6 +25,9 @@ dependencies:
   sass:
     specifier: ^1.64.2
     version: 1.64.2
+  uuid:
+    specifier: ^9.0.0
+    version: 9.0.0
 
 devDependencies:
   '@babel/core':
@@ -63,6 +66,9 @@ devDependencies:
   '@types/react':
     specifier: 18.2.14
     version: 18.2.14
+  '@types/react-beautiful-dnd':
+    specifier: ^13.1.4
+    version: 13.1.4
   '@types/react-dom':
     specifier: 18.2.6
     version: 18.2.6
@@ -5470,7 +5476,7 @@ packages:
     resolution: {integrity: sha512-4bIBdzOr0aavN+88q3C7Pgz+xkb7tz3whORYrmSj77wfVEMfiWiooIwVWFR7KM2e+uGTe5BVrXqSfb0aHeflJA==}
     dependencies:
       '@types/react': 18.2.14
-    dev: false
+    dev: true
 
   /@types/react-dom@18.2.6:
     resolution: {integrity: sha512-2et4PDvg6PVCyS7fuTc4gPoksV58bW0RwSxWKcPRcHZf0PRUGq03TKcD/rUHe3azfV6/5/biUBJw+HhCQjaP0A==}
@@ -5525,6 +5531,10 @@ packages:
   /@types/unist@2.0.7:
     resolution: {integrity: sha512-cputDpIbFgLUaGQn6Vqg3/YsJwxUwHLO13v3i5ouxT4lat0khip9AEWxtERujXV9wxIB1EyF97BSJFt6vpdI8g==}
     dev: true
+
+  /@types/uuid@9.0.2:
+    resolution: {integrity: sha512-kNnC1GFBLuhImSnV7w4njQkUiJi0ZXUycu1rUaouPqiKlXkh77JKgdRnTAp1x5eBwcIwbtI+3otwzuIDEuDoxQ==}
+    dev: false
 
   /@types/warning@3.0.0:
     resolution: {integrity: sha512-t/Tvs5qR47OLOr+4E9ckN8AmP2Tf16gWq+/qA4iUGS/OOyHVO8wv2vjJuX8SNOUTJyWb+2t7wJm6cXILFnOROA==}
@@ -12304,7 +12314,6 @@ packages:
   /uuid@9.0.0:
     resolution: {integrity: sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==}
     hasBin: true
-    dev: true
 
   /v8-to-istanbul@9.1.0:
     resolution: {integrity: sha512-6z3GW9x8G1gd+JIIgQQQxXuiJtCXeAjp6RaPEPLv62mH3iPHPxV6W3robxtCzNErRo6ZwTmzWhsbNvjyEBKzKA==}

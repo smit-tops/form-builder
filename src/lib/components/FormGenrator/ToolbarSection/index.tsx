@@ -1,31 +1,35 @@
-import React from 'react'
-import { toolbarItems } from '../../../mockdata.ts'
+import React, { useContext, useMemo } from 'react'
+import { ToolbarItemTypes, ToolbarItems } from '../../../types/constants'
+import { getNewHeading } from '../../../service/initialField'
+import { addField } from '../../../service/formServices'
+import { IToolbarItem } from '../../../types/toolbar'
+import { FormGenratorContext } from '../../../context/FormContext'
 
 export default function ToolbarSection() {
+  const { toolBar } = useContext(FormGenratorContext)
+
   const handleClick = (key: string) => {
     switch (key) {
-      case 'label':
-        const formData = JSON.parse(localStorage.getItem('formData') ?? '[]')
-        const newItem = {
-          id: formData.length + 1,
-          label: 'label',
-          type: 'label',
-          value: 'Header Label',
-          fieldName: 'Label',
-        }
-        formData.push(newItem)
-        localStorage.setItem('formData', JSON.stringify(formData))
+      case ToolbarItemTypes.Heading:
+        const newItem = getNewHeading()
+        addField(newItem)
         break
-      case 'input':
-        console.log('input')
+      case ToolbarItemTypes.ShortText:
         break
       default:
-        console.log('default')
     }
   }
+
+  const items = useMemo(() => {
+    if (toolBar) {
+      return toolBar
+    }
+    return ToolbarItems || []
+  }, [toolBar])
+
   return (
     <div className="toolbox text-center">
-      {(toolbarItems || []).map((item) => (
+      {items.map((item) => (
         <div className="iconBox" key={item.key} onClick={() => handleClick(item.key)}>
           <div className="iconBoxInner">
             <i className={`icon fa-solid ${item.icon}`} />

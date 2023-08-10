@@ -38,7 +38,7 @@ const RequiredField = ({
         value="isRequired"
       />
       <label className="form-check-label mx-2" htmlFor="isRequired">
-        {label || 'Required'}
+        {label ?? 'Required'}
       </label>
     </span>
   )

@@ -8,7 +8,7 @@ import { FormField } from '../../../types/fields'
 import useFieldSet from '../../../hook/useFieldSet'
 import FieldCard from '../../FormGenrator/FieldCard'
 
-const InputField = ({ field, onChange }: { field: FormField; onChange: any }) => {
+const InputField = ({ field, onChange, provided }: { field: FormField; onChange: any; provided: any }) => {
   const {
     isEdit,
     renderData,
@@ -28,6 +28,7 @@ const InputField = ({ field, onChange }: { field: FormField; onChange: any }) =>
       handleSave={handleSave}
       isEdit={isEdit}
       value={renderData}
+      provided={provided}
     >
       <ItemLabel
         edit={isEdit}

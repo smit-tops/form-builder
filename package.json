@@ -30,13 +30,13 @@
   },
   "dependencies": {
     "@ckeditor/ckeditor5-react": "^6.1.0",
-    "@types/react-beautiful-dnd": "^13.1.4",
     "ckeditor5-custom-build": "file:src/ckeditor",
     "react": "18.2.0",
     "react-beautiful-dnd": "^13.1.1",
     "react-bootstrap": "2.7.0",
     "react-dom": "18.2.0",
-    "sass": "^1.64.2"
+    "sass": "^1.64.2",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@babel/core": "7.22.5",
@@ -51,7 +51,9 @@
     "@testing-library/react": "14.0.0",
     "@types/node": "20.3.1",
     "@types/react": "18.2.14",
+    "@types/react-beautiful-dnd": "^13.1.4",
     "@types/react-dom": "18.2.6",
+    "@types/uuid": "^9.0.2",
     "@typescript-eslint/eslint-plugin": "5.60.0",
     "@vitejs/plugin-react": "4.0.1",
     "@vitest/coverage-c8": "0.32.2",

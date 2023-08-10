@@ -45,7 +45,7 @@ const ItemLabel = ({
         id={'editor'}
         config={{
           toolbar: {
-            items: ['bold', 'italic', 'underline', 'link', 'undo', 'redo', 'removeFormat'],
+            items: ['bold', 'italic', 'underline', 'link', 'undo', 'redo', 'removeFormat', 'fontFamily', 'fontSize'],
             shouldNotGroupWhenFull: true,
           },
         }}

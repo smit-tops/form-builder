@@ -9,6 +9,8 @@ export type FormGenratorContextType = {
   toolBar?: Array<IToolbarItem>
   provider?: any
   setProvider?: any
+  handleFieldChange?: any
+  handleRemoveField?: any
 }
 
 export const FormGenratorContext = createContext<FormGenratorContextType>({
@@ -18,4 +20,6 @@ export const FormGenratorContext = createContext<FormGenratorContextType>({
   toolBar: [],
   provider: null,
   setProvider: () => {},
+  handleFieldChange: () => {},
+  handleRemoveField: () => {},
 })

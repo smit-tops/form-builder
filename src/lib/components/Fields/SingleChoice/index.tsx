@@ -28,7 +28,7 @@ export default function SingleChoice({
 
   return (
     <FieldCard
-      handleDelete={handleDelete}
+      handleDelete={() => handleDelete(field.id)}
       handleEdit={handleEdit}
       handleCancel={handleCancel}
       handleSave={handleSave}

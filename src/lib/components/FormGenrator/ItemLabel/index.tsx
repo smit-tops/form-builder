@@ -10,6 +10,7 @@ const ItemLabel = ({
   className,
   required = false,
   label = 'Question',
+  keyField,
 }: {
   value?: string
   onChange?: any
@@ -18,13 +19,13 @@ const ItemLabel = ({
   className?: string
   required?: boolean
   label?: string
+  keyField?: string
 }) => {
   const [data, setData] = useState<string>()
-
   const handleChanges = (event: any, editor: any) => {
     const dataValue = editor.getData()
     setData(dataValue)
-    if (onChange) onChange(dataValue, event)
+    if (onChange) onChange(dataValue, keyField)
   }
 
   if (!edit) {

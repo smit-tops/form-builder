@@ -2,6 +2,7 @@ export interface BaseFormField {
   id: string
   type: string
   label: string
+  subLabel?: string
   value: string
   fieldName: string
   placeholder?: string

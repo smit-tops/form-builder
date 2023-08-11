@@ -70,10 +70,10 @@ export default function FieldEditSection() {
             )}
           </Droppable>
         </DragDropContext>
-        <TwoColumn />
+        {/* <TwoColumn />
         <Col xs={12}>
           <div className="dropzone">Drop Zone</div>
-        </Col>
+        </Col> */}
       </Row>
     </div>
   )

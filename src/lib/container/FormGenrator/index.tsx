@@ -23,14 +23,46 @@ export const FormGenrator = ({
 
   const handleChangeFormData = useCallback(
     (newFormData: Array<FormField>) => {
+      setFormData(newFormData)
       onChange(newFormData)
     },
     [onChange],
   )
 
+  const handleRemoveField = useCallback(
+    (fieldId: string) => {
+      const newFormData = formData.filter((field) => field.id !== fieldId)
+      console.log('fieldId', fieldId, formData, newFormData)
+      handleChangeFormData(newFormData)
+    },
+    [formData, handleChangeFormData],
+  )
+
+  const handleFieldChange = useCallback(
+    (fnewField: FormField) => {
+      const newFormData = formData.map((field) => {
+        if (field.id === fnewField.id) {
+          return fnewField
+        }
+        return field
+      })
+      handleChangeFormData(newFormData)
+    },
+    [handleChangeFormData, formData],
+  )
+
   const value = useMemo(
-    () => ({ formData, setFormData, handleChangeFormData, toolBar, provider, setProvider }),
-    [formData, setFormData, handleChangeFormData, toolBar, provider, setProvider],
+    () => ({
+      formData,
+      setFormData,
+      handleChangeFormData,
+      toolBar,
+      provider,
+      setProvider,
+      handleFieldChange,
+      handleRemoveField,
+    }),
+    [formData, setFormData, handleChangeFormData, toolBar, provider, setProvider, handleFieldChange, handleRemoveField],
   )
 
   return (

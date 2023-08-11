@@ -7,6 +7,7 @@ export const getNewHeading = () => {
     type: ToolbarItemTypes.Heading,
     label: ToolbarHeadingTypes.Heading,
     value: FieldInitialValues.Heading,
+    subLabel: 'Sub Heading',
     fieldName: ToolbarHeadingTypes.Heading,
   }
 }

@@ -1,10 +1,8 @@
 import React from 'react'
-import { Card, Col } from 'react-bootstrap'
-import FieldHeader from '../../FormGenrator/FieldHeader'
 import ItemLabel from '../../FormGenrator/ItemLabel'
-import FieldFooter from '../../FormGenrator/FieldFooter'
 import { FormField } from '../../../types/fields'
 import useFieldSet from '../../../hook/useFieldSet'
+import FieldCard from '../../FormGenrator/FieldCard'
 
 export default function LabelField({ field, onChange, provided }: { field: FormField; onChange: any; provided: any }) {
   const { isEdit, handleLabelChange, handleEdit, handleSave, handleCancel, handleDelete, renderData } = useFieldSet(
@@ -13,24 +11,33 @@ export default function LabelField({ field, onChange, provided }: { field: FormF
   )
 
   return (
-    <Col xs={12}>
-      <Card>
-        <FieldHeader onDelete={handleDelete} onEdit={handleEdit} title={field.fieldName} provided={provided} />
-        <Card.Body className={isEdit ? '' : 'h5 fw-bold'}>
-          <ItemLabel
-            edit={isEdit}
-            value={renderData.label}
-            onChange={handleLabelChange}
-            className="form-control"
-            label="Label"
-          />
-        </Card.Body>
-        {isEdit && (
-          <Card.Footer>
-            <FieldFooter onCancel={handleCancel} onSave={handleSave} />
-          </Card.Footer>
-        )}
-      </Card>
-    </Col>
+    <>
+      <FieldCard
+        handleDelete={() => handleDelete(field.id)}
+        handleEdit={handleEdit}
+        handleCancel={handleCancel}
+        handleSave={handleSave}
+        isEdit={isEdit}
+        value={renderData}
+        provided={provided}
+      >
+        <ItemLabel
+          edit={isEdit}
+          value={renderData.label}
+          onChange={handleLabelChange}
+          className="form-control"
+          label="Heaader"
+          keyField="label"
+        />
+        <ItemLabel
+          edit={isEdit}
+          value={renderData.subLabel}
+          onChange={handleLabelChange}
+          className="form-control"
+          label="Sub Header"
+          keyField="subLabel"
+        />
+      </FieldCard>
+    </>
   )
 }

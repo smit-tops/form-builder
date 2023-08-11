@@ -90,7 +90,7 @@ export const ToolbarItems: Array<IToolbarItem> = [
   {
     key: ToolbarItemTypes.Dropdown,
     value: ToolbarHeadingTypes.Dropdown,
-    icon: 'fa fa-user',
+    icon: 'fa fa-solid fa-list-dropdown',
   },
   {
     key: ToolbarItemTypes.LineBreak,
@@ -140,6 +140,7 @@ export const mockForm: Array<FormField> = [
     type: 'heading',
     label: 'Heading',
     value: 'Heading',
+    subLabel: 'Sub Label',
     fieldName: 'Heading',
     required: false,
   },

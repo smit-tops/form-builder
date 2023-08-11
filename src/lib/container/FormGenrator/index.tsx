@@ -16,13 +16,17 @@ export const FormGenrator = ({
 }) => {
   const [formData, setFormData] = useState<Array<FormField>>([])
   const [provider, setProvider] = useState<any>()
+
   useEffect(() => {
     if (data) setFormData(data ?? [])
   }, [data])
 
-  const handleChangeFormData = useCallback((newFormData: Array<FormField>) => {
-    console.log('newFormData', newFormData)
-  }, [])
+  const handleChangeFormData = useCallback(
+    (newFormData: Array<FormField>) => {
+      onChange(newFormData)
+    },
+    [onChange],
+  )
 
   const value = useMemo(
     () => ({ formData, setFormData, handleChangeFormData, toolBar, provider, setProvider }),

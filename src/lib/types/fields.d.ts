@@ -1,5 +1,5 @@
 export interface BaseFormField {
-  id: number
+  id: string
   type: string
   label: string
   value: string

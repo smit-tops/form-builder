@@ -136,7 +136,7 @@ export const ToolbarItems: Array<IToolbarItem> = [
 
 export const mockForm: Array<FormField> = [
   {
-    id: 1,
+    id: '1',
     type: 'heading',
     label: 'Heading',
     value: 'Heading',
@@ -144,21 +144,21 @@ export const mockForm: Array<FormField> = [
     required: false,
   },
   {
-    id: 2,
+    id: '2',
     type: 'shortText',
     label: 'Short Text',
     value: 'Short Text',
     fieldName: 'Short Text',
     required: false,
   },
-  // {
-  //   id: 3,
-  //   type: 'longText',
-  //   label: 'Long Text',
-  //   value: 'Long Text',
-  //   fieldName: 'Long Text',
-  //   required: false,
-  // },
+  {
+    id: '3',
+    type: 'longText',
+    label: 'Long Text',
+    value: 'Long Text',
+    fieldName: 'Long Text',
+    required: false,
+  },
   // {
   //   id: 4,
   //   type: 'paragraph',

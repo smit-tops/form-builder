@@ -1,6 +1,6 @@
 import React, { useContext, useMemo } from 'react'
 import { ToolbarItemTypes, ToolbarItems } from '../../../types/constants'
-import { getNewHeading } from '../../../service/initialField'
+import { getNewHeading, getNewLongText, getNewSingleChoice } from '../../../service/initialField'
 import { addField } from '../../../service/formServices'
 import { IToolbarItem } from '../../../types/toolbar'
 import { FormGenratorContext } from '../../../context/FormContext'
@@ -13,6 +13,12 @@ export default function ToolbarSection() {
       case ToolbarItemTypes.Heading:
         const newItem = getNewHeading()
         addField(newItem)
+        break
+      case ToolbarItemTypes.LongText:
+        addField(getNewLongText())
+        break
+      case ToolbarItemTypes.SingleChoice:
+        addField(getNewSingleChoice())
         break
       case ToolbarItemTypes.ShortText:
         break

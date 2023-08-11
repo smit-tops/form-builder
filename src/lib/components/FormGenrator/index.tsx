@@ -7,6 +7,8 @@ import { FormField } from '../../types/fields'
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
 import { ToolbarItemTypes } from '../../types/constants'
 import { FormGenratorContext } from '../../context/FormContext'
+import MultilineInput from '../Fields/MultilineInput'
+import SingleChoice from '../Fields/SingleChoice'
 
 export default function FieldEditSection() {
   const { formData, handleChangeFormData } = useContext(FormGenratorContext)
@@ -22,8 +24,12 @@ export default function FieldEditSection() {
     switch (item.type) {
       case ToolbarItemTypes.ShortText:
         return <InputField {...props} />
+      case ToolbarItemTypes.LongText:
+        return <MultilineInput {...props} />
       case ToolbarItemTypes.Heading:
         return <LabelField {...props} />
+      case ToolbarItemTypes.SingleChoice:
+        return <SingleChoice {...props} />
       case ToolbarItemTypes.TwoColumns:
         return <TwoColumn {...props} />
       default:

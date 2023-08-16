@@ -36,6 +36,7 @@ export default function LabelField({ field, onChange, provided }: { field: FormF
           className="form-control"
           label="Sub Header"
           keyField="subLabel"
+          input
         />
       </FieldCard>
     </>

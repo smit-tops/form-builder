@@ -19,16 +19,23 @@ const FieldCard = ({ handleDelete, handleEdit, handleCancel, handleSave, isEdit,
   }, [])
 
   return (
-    <Col xs={12} onBlur={handleCancel} onDoubleClick={handleEdit}>
-      <Card ref={divRef}>
-        <FieldHeader onDelete={handleDelete} onEdit={handleEdit} title={value.fieldName} provided={provided} />
-        <Card.Body>{children}</Card.Body>
-        {isEdit && (
-          <Card.Footer>
-            <FieldFooter onCancel={handleCancel} onSave={handleSave} />
-          </Card.Footer>
-        )}
-      </Card>
+    <Col xs={12} onDoubleClick={handleEdit}>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault()
+          handleSave()
+        }}
+      >
+        <Card ref={divRef}>
+          <FieldHeader onDelete={handleDelete} onEdit={handleEdit} title={value.fieldName} provided={provided} />
+          <Card.Body>{children}</Card.Body>
+          {isEdit && (
+            <Card.Footer>
+              <FieldFooter onCancel={handleCancel} onSave={handleSave} />
+            </Card.Footer>
+          )}
+        </Card>
+      </form>
     </Col>
   )
 }

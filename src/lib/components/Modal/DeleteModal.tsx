@@ -15,6 +15,7 @@ const DeleteModal = ({ onClick, message = '' }: any) => {
           handleShow()
         }}
         className="cursor-pointer fa-solid fa-trash icon"
+        title="Delete"
       ></i>
       <Modal
         className="deleteModel"

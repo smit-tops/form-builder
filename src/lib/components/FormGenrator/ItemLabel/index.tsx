@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { CKEditor } from '@ckeditor/ckeditor5-react'
 // import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 import ClassicEditor from 'ckeditor5-custom-build/build/ckeditor'
+import CkEditor from '../CkEditor'
 
 const ItemLabel = ({
   value = 'Label Text',
@@ -55,20 +56,14 @@ const ItemLabel = ({
       )}
 
       {!input && (
-        <CKEditor
-          editor={ClassicEditor}
+        <CkEditor
           data={data}
           id={'editor'}
-          config={{
-            toolbar: {
-              items: ['bold', 'italic', 'underline', 'link', 'undo', 'redo', 'removeFormat', 'fontFamily', 'fontSize'],
-              shouldNotGroupWhenFull: true,
-            },
-          }}
-          onReady={(editor) => {
+          onReady={(editor: any) => {
             editor.setData(value || '')
             setData(value || '')
           }}
+          tollbarConfig={['heading', 'style', 'alignment', 'undo', 'font']}
           onChange={handleChanges}
         />
       )}

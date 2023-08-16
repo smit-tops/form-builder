@@ -4,6 +4,7 @@ import FieldEditSection from '../../components/FormGenrator'
 import { FormField } from '../../types/fields'
 import { FormGenratorContext } from '../../context/FormContext'
 import { IToolbarItem } from '../../types/toolbar'
+import { v4 as uuid } from 'uuid'
 
 export const FormGenrator = ({
   data,
@@ -38,6 +39,16 @@ export const FormGenrator = ({
     [formData, handleChangeFormData],
   )
 
+  const handleCopyComponent = useCallback(
+    (id: string) => {
+      const field = formData.find((field) => field.id === id)
+      if (!field) return
+      const newFormData = [...formData, { ...field, id: uuid() }]
+      handleChangeFormData(newFormData)
+    },
+    [formData, handleChangeFormData],
+  )
+
   const handleFieldChange = useCallback(
     (fnewField: FormField) => {
       const newFormData = formData.map((field) => {
@@ -61,8 +72,19 @@ export const FormGenrator = ({
       setProvider,
       handleFieldChange,
       handleRemoveField,
+      handleCopyComponent,
     }),
-    [formData, setFormData, handleChangeFormData, toolBar, provider, setProvider, handleFieldChange, handleRemoveField],
+    [
+      formData,
+      setFormData,
+      handleChangeFormData,
+      toolBar,
+      provider,
+      setProvider,
+      handleFieldChange,
+      handleRemoveField,
+      handleCopyComponent,
+    ],
   )
 
   return (

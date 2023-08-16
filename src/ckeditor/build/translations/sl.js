@@ -99,6 +99,7 @@
     Ridge: '',
     Row: '',
     Save: 'Shrani',
+    'Saving changes': 'Shrani spremembe',
     'Select column': '',
     'Select row': '',
     'Show more items': '',

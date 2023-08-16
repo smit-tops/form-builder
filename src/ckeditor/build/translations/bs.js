@@ -51,6 +51,7 @@
     'Restore default': 'Vrati na zadano',
     'Right aligned image': 'Desno poravnata slika',
     Save: 'Sačuvaj',
+    'Saving changes': 'Spremanje izmjena',
     'Show more items': 'Prikaži više stavki',
     'Side image': '',
     Small: '',

@@ -86,6 +86,7 @@
     'Rich Text Editor': 'កម្មវិធី​កែសម្រួល​អត្ថបទ​សម្បូរបែប',
     'Right aligned image': '',
     Save: 'រក្សាទុ',
+    'Saving changes': 'កំពុង​រក្សាទុក​ការផ្លាស់ប្ដូរ',
     'Show more items': '',
     'Side image': 'រូបភាព​នៅ​ខាង',
     Square: '',

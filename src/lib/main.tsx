@@ -38,7 +38,11 @@ export const Main = () => {
 
   return (
     <div>
-      <button onClick={() => setPreview(!preview)}>Preview</button>
+      <div className="text-center my-3">
+        <button className="btn btn-darkblue mx-auto" onClick={() => setPreview(!preview)}>
+          Preview
+        </button>
+      </div>
       {preview && <FormPreview data={data} />}
       {!preview && <FormGenrator data={data} onChange={handleChnage} />}
     </div>

@@ -34,10 +34,13 @@ export const Main = () => {
 
   // saveForm(mockForm)
 
+  const [preview, setPreview] = useState(false)
+
   return (
     <div>
-      <FormGenrator data={data} onChange={handleChnage} />
-      <FormPreview />
+      <button onClick={() => setPreview(!preview)}>Preview</button>
+      {preview && <FormPreview data={data} />}
+      {!preview && <FormGenrator data={data} onChange={handleChnage} />}
     </div>
   )
 }

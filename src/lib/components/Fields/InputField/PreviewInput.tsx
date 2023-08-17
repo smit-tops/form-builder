@@ -10,7 +10,11 @@ type PreviewInputPropTypes = {
 const PreviewInput = ({ label, placeholder, type = 'text' }: PreviewInputPropTypes) => {
   return (
     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-      {label ? <Form.Label>{label}</Form.Label> : null}
+      {label ? (
+        <Form.Label>
+          <div dangerouslySetInnerHTML={{ __html: label }}></div>
+        </Form.Label>
+      ) : null}
       <Form.Control type={type} placeholder={placeholder} />
       <Form.Control.Feedback type="invalid">Please provide a valid input.</Form.Control.Feedback>
     </Form.Group>

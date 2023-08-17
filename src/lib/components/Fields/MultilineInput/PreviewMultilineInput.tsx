@@ -10,7 +10,11 @@ type PreviewInputPropTypes = {
 const PreviewMultilineInput = ({ label, placeholder, type = 'text' }: PreviewInputPropTypes) => {
   return (
     <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-      {label ? <Form.Label>{label}</Form.Label> : null}
+      {label ? (
+        <Form.Label>
+          <div dangerouslySetInnerHTML={{ __html: label }}></div>
+        </Form.Label>
+      ) : null}
       <Form.Control as="textarea" type={type} placeholder={placeholder} rows={3} />
     </Form.Group>
   )

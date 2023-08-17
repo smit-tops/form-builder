@@ -6,7 +6,7 @@ const RequiredField = ({
   label,
   edit = false,
 }: {
-  value: boolean
+  value: boolean | undefined
   onChange: any
   label?: string
   edit: boolean

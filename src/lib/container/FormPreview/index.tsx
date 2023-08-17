@@ -20,6 +20,7 @@ const FormPreview = ({ data }: any) => {
       placeholder: 'Enter',
       key: item.type,
       label: item.label,
+      required: item.required,
     }
 
     switch (item.type) {
@@ -48,34 +49,7 @@ const FormPreview = ({ data }: any) => {
         <div className="bg-white p-5">
           <FormHeader />
           <Form>
-            {/* <PreviewInput label="Email" placeholder="Enter email" />
-            <PreviewMultilineInput label="Example textarea" placeholder="Enter example textarea" />
-
-            <div className="mb-3">
-              <Form.Check // prettier-ignore
-                type="radio"
-                label="default radio"
-              />
-
-              <Form.Check // prettier-ignore
-                type="radio"
-                label="default radio"
-              />
-            </div>
-
-            <Form.Check // prettier-ignore
-              type="switch"
-              id="custom-switch"
-              label="Check this switch"
-            /> */}
-            {/* <Draggable key={'option' + item.id} draggableId={'optionDrag' + item.id} index={index}>
-                  {(provided) => {
-                    return (
-                    )
-                  }}
-                </Draggable> */}
             {data && data.map((item: FormField, index: number) => <div className="my-2">{renderSwitch(item)}</div>)}
-
             <Button type="submit">Submit form</Button>
           </Form>
           <FormFooter />

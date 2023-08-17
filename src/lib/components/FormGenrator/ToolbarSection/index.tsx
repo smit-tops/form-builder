@@ -33,6 +33,27 @@ export default function ToolbarSection() {
       case ToolbarItemTypes.LineBreak:
         handleAddNewData(n.getNewLineBreak())
         break
+      case ToolbarItemTypes.MultipleChoice:
+        handleAddNewData(n.getNewMultipleChoice())
+        break
+
+      case ToolbarItemTypes.Date:
+        handleAddNewData(n.getNewDate())
+        break
+      case ToolbarItemTypes.Dropdown:
+        handleAddNewData(n.getNewDropdown())
+        break
+
+      case ToolbarItemTypes.Image:
+        handleAddNewData(n.getNewImage())
+        break
+      case ToolbarItemTypes.File:
+        handleAddNewData(n.getNewFile())
+        break
+      case ToolbarItemTypes.TwoColumns:
+        handleAddNewData(n.getNewTwoColumn())
+        break
+
       default:
     }
   }

@@ -11,6 +11,12 @@ import MultilineInput from '../Fields/MultilineInput'
 import SingleChoice from '../Fields/SingleChoice'
 import ParagraphField from '../Fields/Paragraph'
 import LineBreakField from '../Fields/LineBreak'
+import MultiChoiceField from '../Fields/MultipleChoice'
+import DateField from '../Fields/Date'
+import DropdownField from '../Fields/Dropdown'
+import ImageField from '../Fields/Image'
+import FileField from '../Fields/File'
+import TwoColumnsField from '../Fields/TwoColumns'
 
 export default function FieldEditSection() {
   const { formData, handleChangeFormData } = useContext(FormGenratorContext)
@@ -32,12 +38,23 @@ export default function FieldEditSection() {
         return <LabelField {...props} />
       case ToolbarItemTypes.SingleChoice:
         return <SingleChoice {...props} />
-      case ToolbarItemTypes.TwoColumns:
-        return <TwoColumn {...props} />
       case ToolbarItemTypes.Paragraph:
         return <ParagraphField {...props} />
       case ToolbarItemTypes.LineBreak:
         return <LineBreakField {...props} />
+      case ToolbarItemTypes.MultipleChoice:
+        return <MultiChoiceField {...props} />
+      case ToolbarItemTypes.Date:
+        return <DateField {...props} />
+      case ToolbarItemTypes.Dropdown:
+        return <DropdownField {...props} />
+      case ToolbarItemTypes.Image:
+        return <ImageField {...props} />
+      case ToolbarItemTypes.File:
+        return <FileField {...props} />
+      case ToolbarItemTypes.TwoColumns:
+        return <TwoColumnsField {...props} />
+
       default:
         return null
     }

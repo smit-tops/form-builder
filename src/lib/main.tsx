@@ -3,6 +3,7 @@ import { FormGenrator } from './container'
 import { FormField } from './types/fields'
 import { getForm, saveForm } from './service/formServices'
 import { mockForm } from './types/constants'
+import FormPreview from './container/FormPreview'
 
 export const Main = () => {
   const [data, setData] = useState<Array<FormField>>([])
@@ -36,6 +37,7 @@ export const Main = () => {
   return (
     <div>
       <FormGenrator data={data} onChange={handleChnage} />
+      <FormPreview />
     </div>
   )
 }

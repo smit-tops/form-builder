@@ -6,17 +6,17 @@ import FieldFooter from './FieldFooter'
 const FieldCard = ({ handleDelete, handleEdit, handleCancel, handleSave, isEdit, children, value, provided }: any) => {
   const divRef = useRef<any>(null)
 
-  useEffect(() => {
-    const handleClickOutside = (event: any) => {
-      if (divRef.current && !divRef.current?.contains(event.target)) {
-        handleCancel()
-      }
-    }
-    document.addEventListener('click', handleClickOutside)
-    return () => {
-      document.removeEventListener('click', handleClickOutside)
-    }
-  }, [])
+  // useEffect(() => {
+  //   const handleClickOutside = (event: any) => {
+  //     if (divRef.current && !divRef.current?.contains(event.target)) {
+  //       handleCancel()
+  //     }
+  //   }
+  //   document.addEventListener('click', handleClickOutside)
+  //   return () => {
+  //     document.removeEventListener('click', handleClickOutside)
+  //   }
+  // }, [])
 
   return (
     <Col xs={12} onDoubleClick={handleEdit}>

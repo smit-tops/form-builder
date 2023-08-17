@@ -33,7 +33,6 @@ export const FormGenrator = ({
   const handleRemoveField = useCallback(
     (fieldId: string) => {
       const newFormData = formData.filter((field) => field.id !== fieldId)
-      console.log('fieldId', fieldId, formData, newFormData)
       handleChangeFormData(newFormData)
     },
     [formData, handleChangeFormData],
@@ -43,7 +42,11 @@ export const FormGenrator = ({
     (id: string) => {
       const field = formData.find((field) => field.id === id)
       if (!field) return
-      const newFormData = [...formData, { ...field, id: uuid() }]
+      const index = formData.findIndex((field) => field.id === id)
+      const newField = { ...field, id: uuid() }
+      const newFormData = [...formData]
+      newFormData.splice(index + 1, 0, newField)
+      // const newFormData = [...formData, newField}]
       handleChangeFormData(newFormData)
     },
     [formData, handleChangeFormData],

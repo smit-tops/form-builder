@@ -10,7 +10,7 @@ const FieldHeader = ({
   provided,
   id,
 }: {
-  onEdit: () => void
+  onEdit?: () => void
   onDelete: () => void
   title: string
   provided: any
@@ -22,7 +22,7 @@ const FieldHeader = ({
     <Card.Header>
       <div className="card-title">{title}</div>
       <div className="card-toolbar">
-        <i className="cursor-pointer fa-solid fa-pen-line icon" title="Edit" onClick={onEdit} />
+        {onEdit && <i className="cursor-pointer fa-solid fa-pen-line icon" title="Edit" onClick={onEdit} />}
         <i className="cursor-pointer fa-solid fa-copy icon" title="Copy" onClick={() => handleCopyComponent(id)} />
         <DeleteModal onClick={onDelete} />
         {/* <i className="cursor-pointer fa-solid fa-trash icon" onClick={onDelete} /> */}

@@ -33,7 +33,6 @@ export default function CkEditor({
   tollbarConfig?: Array<'heading' | 'style' | 'undo' | 'font' | 'alignment'>
 }) {
   const toolbar = tollbarConfig.map((item) => [...tollbarItems[item], '|']).flat()
-  console.log('toolbar', toolbar)
 
   return (
     <CKEditor

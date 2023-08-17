@@ -30,6 +30,9 @@ export default function ToolbarSection() {
       case ToolbarItemTypes.Paragraph:
         handleAddNewData(n.getNewParagraph())
         break
+      case ToolbarItemTypes.LineBreak:
+        handleAddNewData(n.getNewLineBreak())
+        break
       default:
     }
   }

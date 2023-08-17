@@ -46,7 +46,7 @@ export default function SingleChoice({
 
       <Options icon="fa-circle" />
 
-      <RequiredField edit={isEdit} value={renderData.required} onChange={onRequiredChange} />
+      <RequiredField edit={isEdit} value={!!renderData.required} onChange={onRequiredChange} />
     </FieldCard>
   )
 }

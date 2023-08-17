@@ -9,6 +9,8 @@ import { ToolbarItemTypes } from '../../types/constants'
 import { FormGenratorContext } from '../../context/FormContext'
 import MultilineInput from '../Fields/MultilineInput'
 import SingleChoice from '../Fields/SingleChoice'
+import ParagraphField from '../Fields/Paragraph'
+import LineBreakField from '../Fields/LineBreak'
 
 export default function FieldEditSection() {
   const { formData, handleChangeFormData } = useContext(FormGenratorContext)
@@ -32,6 +34,10 @@ export default function FieldEditSection() {
         return <SingleChoice {...props} />
       case ToolbarItemTypes.TwoColumns:
         return <TwoColumn {...props} />
+      case ToolbarItemTypes.Paragraph:
+        return <ParagraphField {...props} />
+      case ToolbarItemTypes.LineBreak:
+        return <LineBreakField {...props} />
       default:
         return null
     }

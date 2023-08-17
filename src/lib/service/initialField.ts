@@ -1,7 +1,8 @@
 import { v4 as uuid } from 'uuid'
 import { FieldInitialValues, ToolbarHeadingTypes, ToolbarItemTypes, defaultOptions } from '../types/constants'
+import { FormField } from '../types/fields'
 
-export const getNewHeading = () => {
+export const getNewHeading = (): FormField => {
   return {
     id: uuid(),
     type: ToolbarItemTypes.Heading,
@@ -12,7 +13,7 @@ export const getNewHeading = () => {
   }
 }
 
-export const getNewShortText = () => {
+export const getNewShortText = (): FormField => {
   return {
     id: uuid(),
     type: ToolbarItemTypes.ShortText,
@@ -22,7 +23,7 @@ export const getNewShortText = () => {
   }
 }
 
-export const getNewLongText = () => {
+export const getNewLongText = (): FormField => {
   return {
     id: uuid(),
     type: ToolbarItemTypes.LongText,
@@ -32,7 +33,7 @@ export const getNewLongText = () => {
   }
 }
 
-export const getNewParagraph = () => {
+export const getNewParagraph = (): FormField => {
   return {
     id: uuid(),
     type: ToolbarItemTypes.Paragraph,
@@ -42,7 +43,7 @@ export const getNewParagraph = () => {
   }
 }
 
-export const getNewDropdown = () => {
+export const getNewDropdown = (): FormField => {
   return {
     id: uuid(),
     type: ToolbarItemTypes.Dropdown,
@@ -53,7 +54,7 @@ export const getNewDropdown = () => {
   }
 }
 
-export const getNewSingleChoice = () => {
+export const getNewSingleChoice = (): FormField => {
   return {
     id: uuid(),
     type: ToolbarItemTypes.SingleChoice,
@@ -64,7 +65,7 @@ export const getNewSingleChoice = () => {
   }
 }
 
-export const getNewMultipleChoice = () => {
+export const getNewMultipleChoice = (): FormField => {
   return {
     id: uuid(),
     type: ToolbarItemTypes.MultipleChoice,
@@ -75,7 +76,7 @@ export const getNewMultipleChoice = () => {
   }
 }
 
-export const getNewDate = () => {
+export const getNewDate = (): FormField => {
   return {
     id: uuid(),
     type: ToolbarItemTypes.Date,
@@ -86,7 +87,7 @@ export const getNewDate = () => {
 }
 
 // write same for Image, file, linebreak and two column
-export const getNewImage = () => {
+export const getNewImage = (): FormField => {
   return {
     id: uuid(),
     type: ToolbarItemTypes.Image,
@@ -96,7 +97,7 @@ export const getNewImage = () => {
   }
 }
 
-export const getNewFile = () => {
+export const getNewFile = (): FormField => {
   return {
     id: uuid(),
     type: ToolbarItemTypes.File,
@@ -106,7 +107,7 @@ export const getNewFile = () => {
   }
 }
 
-export const getNewLineBreak = () => {
+export const getNewLineBreak = (): FormField => {
   return {
     id: uuid(),
     type: ToolbarItemTypes.LineBreak,
@@ -116,7 +117,7 @@ export const getNewLineBreak = () => {
   }
 }
 
-export const getNewTwoColumn = () => {
+export const getNewTwoColumn = (): FormField => {
   return {
     id: uuid(),
     type: ToolbarItemTypes.TwoColumns,

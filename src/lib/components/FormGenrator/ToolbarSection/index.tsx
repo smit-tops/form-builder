@@ -1,6 +1,6 @@
 import React, { useContext, useMemo } from 'react'
 import { ToolbarItemTypes, ToolbarItems } from '../../../types/constants'
-import { getNewHeading, getNewLongText, getNewShortText, getNewSingleChoice } from '../../../service/initialField'
+import * as n from '../../../service/initialField'
 import { addField } from '../../../service/formServices'
 import { FormGenratorContext } from '../../../context/FormContext'
 import { FormField } from '../../../types/fields'
@@ -8,28 +8,30 @@ import { FormField } from '../../../types/fields'
 export default function ToolbarSection() {
   const { toolBar, setFormData } = useContext(FormGenratorContext)
 
+  const handleAddNewData = (newData: FormField) => {
+    addField(newData)
+    setFormData((prev: Array<FormField>) => [...prev, newData])
+  }
+
   const handleClick = (key: string) => {
     switch (key) {
       case ToolbarItemTypes.Heading:
-        const newItem = getNewHeading()
-        addField(newItem)
-        setFormData((prev: Array<FormField>) => [...prev, newItem])
+        handleAddNewData(n.getNewHeading())
         break
       case ToolbarItemTypes.LongText:
-        const newItem2 = getNewLongText()
-        addField(newItem2)
-        setFormData((prev: Array<FormField>) => [...prev, newItem2])
+        handleAddNewData(n.getNewLongText())
         break
       case ToolbarItemTypes.SingleChoice:
-        const newItem3 = getNewSingleChoice()
-        console.log('newItem3', newItem3)
-        addField(newItem3)
-        setFormData((prev: Array<FormField>) => [...prev, newItem3])
+        handleAddNewData(n.getNewSingleChoice())
         break
       case ToolbarItemTypes.ShortText:
-        const newItem4 = getNewShortText()
-        addField(newItem4)
-        setFormData((prev: Array<FormField>) => [...prev, newItem4])
+        handleAddNewData(n.getNewShortText())
+        break
+      case ToolbarItemTypes.Paragraph:
+        handleAddNewData(n.getNewParagraph())
+        break
+      case ToolbarItemTypes.LineBreak:
+        handleAddNewData(n.getNewLineBreak())
         break
       default:
     }

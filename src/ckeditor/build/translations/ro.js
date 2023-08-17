@@ -1,6 +1,6 @@
 ;(function (e) {
-  const i = (e['ro'] = e['ro'] || {})
-  i.dictionary = Object.assign(i.dictionary || {}, {
+  const t = (e['ro'] = e['ro'] || {})
+  t.dictionary = Object.assign(t.dictionary || {}, {
     '%0 of %1': '%0 din %1',
     Accept: 'Acceptă',
     'Align cell text to the bottom': 'Alinează textul celulei jos',
@@ -20,6 +20,7 @@
     Big: 'Mare',
     Black: 'Negru',
     'Block quote': 'Bloc citat',
+    'Block styles': 'Stiluri pentru blocuri',
     Blue: 'Albastru',
     Bold: 'Îngroșat',
     Border: 'Bordură',
@@ -33,6 +34,7 @@
     'Center table': 'Tabelă centrată',
     'Centered image': 'Imagine aliniată pe centru',
     'Change image text alternative': 'Schimbă textul alternativ al imaginii',
+    'Characters: %0': 'Caractere: %0',
     'Choose heading': 'Alege titlu',
     Circle: 'Cerc',
     Code: 'Cod',
@@ -82,6 +84,7 @@
     Height: 'Înălțime',
     HEX: 'HEX',
     'Horizontal text alignment toolbar': 'Toolbar aliniere text orizontală',
+    'HTML object': 'Obiect HTML',
     Huge: 'Foarte mare',
     'Image resize list': 'Lista cu mărimi de redimensionare',
     'Image toolbar': 'Bară imagine',
@@ -121,6 +124,7 @@
     'Merge cell right': 'Îmbină celula la dreapta',
     'Merge cell up': 'Îmbină celula în sus',
     'Merge cells': 'Îmbină celulele',
+    'Multiple styles': 'Stiluri multiple',
     Next: 'Înainte',
     None: 'Nimic',
     'Numbered List': 'Listă numerotată',
@@ -141,6 +145,7 @@
     Red: 'Roșu',
     Redo: 'Revenire',
     'Remove color': 'Șterge culoare',
+    'Remove Format': 'Șterge formatare',
     'Resize image': 'Redimensionează imaginea',
     'Resize image to %0': 'Redimensionează imaginea la %0',
     'Resize image to the original size': 'Redimensionează imaginea la mărimea originală',
@@ -151,6 +156,7 @@
     'Right aligned image': 'Imagine aliniată la dreapta',
     Row: 'Rând',
     Save: 'Salvare',
+    'Saving changes': 'Se salvează modificările',
     'Select all': 'Selectează-le pe toate',
     'Select column': 'Selectează coloana',
     'Select row': 'Selectează linia',
@@ -165,6 +171,7 @@
     'Start index must be greater than 0.': 'Indexul de pornire trebuie să fie mai mare de 0.',
     Strikethrough: 'Tăiere text cu o linie',
     Style: 'Stil',
+    Styles: 'Stiluri',
     Subscript: 'Indice',
     Superscript: 'Exponent',
     'Table alignment toolbar': 'Toolbar aliniere tabelă',
@@ -174,6 +181,7 @@
     'Text alignment': 'Aliniere text',
     'Text alignment toolbar': 'Bara aliniere text',
     'Text alternative': 'Text alternativ',
+    'Text styles': 'Stiluri pentru text',
     'The color is invalid. Try "#FF0000" or "rgb(255,0,0)" or "red".':
       'Culoarea este invalidă. Încearcă "#FF0000" sau "rgb(255,0,0)" sau "red".',
     'The URL must not be empty.': 'URL-ul nu trebuie să fie gol.',
@@ -212,10 +220,11 @@
     White: 'Alb',
     'Widget toolbar': 'Bară widget',
     Width: 'Lungime',
+    'Words: %0': 'Cuvinte: %0',
     'Wrap text': 'Încadrare text',
     Yellow: 'Galben',
   })
-  i.getPluralForm = function (e) {
+  t.getPluralForm = function (e) {
     return e == 1 ? 0 : e % 100 > 19 || (e % 100 == 0 && e != 0) ? 2 : 1
   }
 })(window.CKEDITOR_TRANSLATIONS || (window.CKEDITOR_TRANSLATIONS = {}))

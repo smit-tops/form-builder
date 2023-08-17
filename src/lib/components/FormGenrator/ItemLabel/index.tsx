@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { CKEditor } from '@ckeditor/ckeditor5-react'
 // import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 import ClassicEditor from 'ckeditor5-custom-build/build/ckeditor'
+import CkEditor from '../CkEditor'
 
 const ItemLabel = ({
   value = 'Label Text',
@@ -11,6 +12,7 @@ const ItemLabel = ({
   required = false,
   label = 'Question',
   keyField,
+  input = false,
 }: {
   value?: string
   onChange?: any
@@ -20,6 +22,7 @@ const ItemLabel = ({
   required?: boolean
   label?: string
   keyField?: string
+  input?: boolean
 }) => {
   const [data, setData] = useState<string>()
   const handleChanges = (event: any, editor: any) => {
@@ -40,22 +43,30 @@ const ItemLabel = ({
   return (
     <div>
       <label htmlFor="editor">{label || 'Question'}</label>
-      <CKEditor
-        editor={ClassicEditor}
-        data={data}
-        id={'editor'}
-        config={{
-          toolbar: {
-            items: ['bold', 'italic', 'underline', 'link', 'undo', 'redo', 'removeFormat', 'fontFamily', 'fontSize'],
-            shouldNotGroupWhenFull: true,
-          },
-        }}
-        onReady={(editor) => {
-          editor.setData(value || '')
-          setData(value || '')
-        }}
-        onChange={handleChanges}
-      />
+
+      {input && (
+        <input
+          type="text"
+          className="form-control"
+          value={value}
+          onChange={(e) => {
+            if (onChange) onChange(e.target.value, keyField)
+          }}
+        />
+      )}
+
+      {!input && (
+        <CkEditor
+          data={data}
+          id={'editor'}
+          onReady={(editor: any) => {
+            editor.setData(value || '')
+            setData(value || '')
+          }}
+          tollbarConfig={['heading', 'style', 'alignment', 'undo', 'font']}
+          onChange={handleChanges}
+        />
+      )}
     </div>
   )
 }

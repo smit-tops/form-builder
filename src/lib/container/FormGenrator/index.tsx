@@ -4,6 +4,7 @@ import FieldEditSection from '../../components/FormGenrator'
 import { FormField } from '../../types/fields'
 import { FormGenratorContext } from '../../context/FormContext'
 import { IToolbarItem } from '../../types/toolbar'
+import { v4 as uuid } from 'uuid'
 
 export const FormGenrator = ({
   data,
@@ -32,7 +33,20 @@ export const FormGenrator = ({
   const handleRemoveField = useCallback(
     (fieldId: string) => {
       const newFormData = formData.filter((field) => field.id !== fieldId)
-      console.log('fieldId', fieldId, formData, newFormData)
+      handleChangeFormData(newFormData)
+    },
+    [formData, handleChangeFormData],
+  )
+
+  const handleCopyComponent = useCallback(
+    (id: string) => {
+      const field = formData.find((field) => field.id === id)
+      if (!field) return
+      const index = formData.findIndex((field) => field.id === id)
+      const newField = { ...field, id: uuid() }
+      const newFormData = [...formData]
+      newFormData.splice(index + 1, 0, newField)
+      // const newFormData = [...formData, newField}]
       handleChangeFormData(newFormData)
     },
     [formData, handleChangeFormData],
@@ -61,8 +75,19 @@ export const FormGenrator = ({
       setProvider,
       handleFieldChange,
       handleRemoveField,
+      handleCopyComponent,
     }),
-    [formData, setFormData, handleChangeFormData, toolBar, provider, setProvider, handleFieldChange, handleRemoveField],
+    [
+      formData,
+      setFormData,
+      handleChangeFormData,
+      toolBar,
+      provider,
+      setProvider,
+      handleFieldChange,
+      handleRemoveField,
+      handleCopyComponent,
+    ],
   )
 
   return (

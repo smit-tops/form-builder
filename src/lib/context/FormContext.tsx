@@ -11,6 +11,7 @@ export type FormGenratorContextType = {
   setProvider?: any
   handleFieldChange?: any
   handleRemoveField?: any
+  handleCopyComponent?: any
 }
 
 export const FormGenratorContext = createContext<FormGenratorContextType>({
@@ -22,4 +23,5 @@ export const FormGenratorContext = createContext<FormGenratorContextType>({
   setProvider: () => {},
   handleFieldChange: () => {},
   handleRemoveField: () => {},
+  handleCopyComponent: () => {},
 })

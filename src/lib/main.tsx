@@ -3,6 +3,7 @@ import { FormGenrator } from './container'
 import { FormField } from './types/fields'
 import { getForm, saveForm } from './service/formServices'
 import { mockForm } from './types/constants'
+import FormPreview from './container/FormPreview'
 
 export const Main = () => {
   const [data, setData] = useState<Array<FormField>>([])
@@ -33,9 +34,17 @@ export const Main = () => {
 
   // saveForm(mockForm)
 
+  const [preview, setPreview] = useState(false)
+
   return (
     <div>
-      <FormGenrator data={data} onChange={handleChnage} />
+      <div className="text-center my-3">
+        <button className="btn btn-darkblue mx-auto" onClick={() => setPreview(!preview)}>
+          Preview
+        </button>
+      </div>
+      {preview && <FormPreview data={data} />}
+      {!preview && <FormGenrator data={data} onChange={handleChnage} />}
     </div>
   )
 }

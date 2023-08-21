@@ -94,7 +94,7 @@ export const FormGenrator = ({
     <FormGenratorContext.Provider value={value}>
       <div>
         <div className="form-builder">
-          <div className="d-flex align-items-center px-4 py-3 bg-white topbar">
+          {/* <div className="d-flex align-items-center px-4 py-3 bg-white topbar">
             <h6 className="fw-bold mb-0">Add Template</h6>
             <div className="ms-auto">
               <button type="button" className="btn btn-outline-defult">
@@ -107,7 +107,7 @@ export const FormGenrator = ({
                 Save
               </button>
             </div>
-          </div>
+          </div> */}
           <div className="d-flex">
             <ToolbarSection />
             <FieldEditSection />

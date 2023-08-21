@@ -1,9 +1,13 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 dependencies:
   '@ckeditor/ckeditor5-react':
     specifier: ^6.1.0
-    version: 6.1.0(@ckeditor/ckeditor5-core@39.0.1)(@ckeditor/ckeditor5-engine@39.0.1)(@ckeditor/ckeditor5-utils@39.0.1)(@ckeditor/ckeditor5-watchdog@39.0.1)(react@18.2.0)
+    version: 6.1.0(@ckeditor/ckeditor5-core@39.0.0)(@ckeditor/ckeditor5-engine@39.0.0)(@ckeditor/ckeditor5-utils@39.0.0)(@ckeditor/ckeditor5-watchdog@39.0.0)(react@18.2.0)
   ckeditor5-custom-build:
     specifier: file:src/ckeditor
     version: file:src/ckeditor
@@ -69,6 +73,9 @@ devDependencies:
   '@types/react-dom':
     specifier: 18.2.6
     version: 18.2.6
+  '@types/uuid':
+    specifier: ^9.0.2
+    version: 9.0.2
   '@types/uuid':
     specifier: ^9.0.2
     version: 9.0.2
@@ -5567,6 +5574,7 @@ packages:
   /@types/uuid@9.0.2:
     resolution: {integrity: sha512-kNnC1GFBLuhImSnV7w4njQkUiJi0ZXUycu1rUaouPqiKlXkh77JKgdRnTAp1x5eBwcIwbtI+3otwzuIDEuDoxQ==}
     dev: true
+    dev: true
 
   /@types/warning@3.0.0:
     resolution: {integrity: sha512-t/Tvs5qR47OLOr+4E9ckN8AmP2Tf16gWq+/qA4iUGS/OOyHVO8wv2vjJuX8SNOUTJyWb+2t7wJm6cXILFnOROA==}
@@ -10579,6 +10587,7 @@ packages:
 
   /prr@1.0.1:
     resolution: {integrity: sha512-yPw4Sng1gWghHQWj0B3ZggWUm4qVbPwPFcRG8KyxiU7J2OHFSoEHKS+EZ3fv5l1t9CyCiop6l/ZYeWbrgoQejw==}
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -11262,6 +11271,7 @@ packages:
 
   /sax@1.2.4:
     resolution: {integrity: sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==}
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -12858,7 +12868,6 @@ packages:
   file:src/ckeditor:
     resolution: {directory: src/ckeditor, type: directory}
     name: ckeditor5-custom-build
-    version: 0.0.1
     dependencies:
       '@ckeditor/ckeditor5-alignment': 39.0.1
       '@ckeditor/ckeditor5-autoformat': 39.0.1

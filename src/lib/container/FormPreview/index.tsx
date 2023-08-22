@@ -49,7 +49,12 @@ const FormPreview = ({ data }: any) => {
         <div className="bg-white p-5">
           <FormHeader />
           <Form>
-            {data && data.map((item: FormField, index: number) => <div className="my-2">{renderSwitch(item)}</div>)}
+            {data &&
+              data.map((item: FormField, index: number) => (
+                <div className="my-2" key={index}>
+                  {renderSwitch(item)}
+                </div>
+              ))}
             <Button type="submit">Submit form</Button>
           </Form>
           <FormFooter />

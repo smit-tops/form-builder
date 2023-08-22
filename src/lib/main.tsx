@@ -7,10 +7,11 @@ import FormPreview from './container/FormPreview'
 
 export const Main = () => {
   const [data, setData] = useState<Array<FormField>>([])
+  const [preview, setPreview] = useState(false)
 
   useEffect(() => {
     setData(getForm())
-  }, [])
+  }, [preview])
 
   const handleChnage = useCallback(
     (newItem: FormField) => {
@@ -33,8 +34,6 @@ export const Main = () => {
   )
 
   // saveForm(mockForm)
-
-  const [preview, setPreview] = useState(false)
 
   return (
     <div>

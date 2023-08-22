@@ -9,12 +9,12 @@ import { FormField } from '../../types/fields'
 import { ToolbarItemTypes } from '../../types/constants'
 import PreviewLabelField from '../../components/Fields/labelField/PreviewLabelField'
 import PreviewLineBreak from '../../components/Fields/LineBreak/PreviewLineBreak'
+import PreviewParagraph from '../../components/Fields/Paragraph/PreviewParagraph'
 const FormPreview = ({ data }: any) => {
   console.log('data', data)
 
   const renderSwitch = (item: FormField) => {
     const props = {
-      // provided,
       field: item,
       // onChange: handleChangeFormData,
       placeholder: 'Enter',
@@ -22,22 +22,31 @@ const FormPreview = ({ data }: any) => {
       label: item.label,
       required: item.required,
     }
-
     switch (item.type) {
-      // case ToolbarItemTypes.ShortText:
-      //   return <InputField {...props} />
-      case ToolbarItemTypes.LongText:
-        return <PreviewMultilineInput {...props} />
       case ToolbarItemTypes.ShortText:
         return <PreviewInput {...props} />
+      case ToolbarItemTypes.LongText:
+        return <PreviewMultilineInput {...props} />
       case ToolbarItemTypes.Heading:
         return <PreviewLabelField {...props} />
-      // case ToolbarItemTypes.TwoColumns:
-      //   return <TwoColumn {...props} />
-      // case ToolbarItemTypes.Paragraph:
-      //   return <ParagraphField {...props} />
+      // case ToolbarItemTypes.SingleChoice:
+      //   return <SingleChoice {...props} />
+      case ToolbarItemTypes.Paragraph:
+        return <PreviewParagraph {...props} />
       case ToolbarItemTypes.LineBreak:
         return <PreviewLineBreak />
+      // case ToolbarItemTypes.MultipleChoice:
+      //   return <MultiChoiceField {...props} />
+      // case ToolbarItemTypes.Date:
+      //   return <DateField {...props} />
+      // case ToolbarItemTypes.Dropdown:
+      //   return <DropdownField {...props} />
+      // case ToolbarItemTypes.Image:
+      //   return <ImageField {...props} />
+      // case ToolbarItemTypes.File:
+      //   return <FileField {...props} />
+      // case ToolbarItemTypes.TwoColumns:
+      //   return <TwoColumnsField {...props} />
       default:
         return null
     }

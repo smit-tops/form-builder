@@ -5,17 +5,21 @@ type PreviewInputPropTypes = {
   label: string
   placeholder: string
   type?: string
+  required?: boolean | undefined
 }
 
-const PreviewInput = ({ label, placeholder, type = 'text' }: PreviewInputPropTypes) => {
+const PreviewInput = ({ label, required, placeholder, type = 'text' }: PreviewInputPropTypes) => {
   return (
     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
       {label ? (
         <Form.Label>
-          <div dangerouslySetInnerHTML={{ __html: label }}></div>
+          <div className="d-flex">
+            <div dangerouslySetInnerHTML={{ __html: label }}></div>
+            {required && <div className="ml-2 text-danger">*</div>}
+          </div>
         </Form.Label>
       ) : null}
-      <Form.Control type={type} placeholder={placeholder} />
+      <Form.Control type={type} placeholder={placeholder} required={required} />
       <Form.Control.Feedback type="invalid">Please provide a valid input.</Form.Control.Feedback>
     </Form.Group>
   )

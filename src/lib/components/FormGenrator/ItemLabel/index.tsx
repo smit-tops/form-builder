@@ -28,7 +28,7 @@ const ItemLabel = ({
   const handleChanges = (event: any, editor: any) => {
     const dataValue = editor.getData()
     setData(dataValue)
-    if (onChange) onChange(dataValue, keyField)
+    if (onChange) onChange('label', dataValue, keyField)
   }
 
   if (!edit) {

@@ -5,18 +5,11 @@ import { FormGenratorContext } from '../context/FormContext'
 const useFieldSet = (field: FormField, onChange: any) => {
   const [isEdit, setIsEdit] = useState<boolean>(false)
   const [editField, setEditField] = useState<FormField>(field)
-  const { handleFieldChange, handleRemoveField } = useContext(FormGenratorContext)
+  const { handleFieldChange: fieldChange, handleRemoveField } = useContext(FormGenratorContext)
 
   useEffect(() => {
     if (isEdit) setEditField(field)
   }, [isEdit])
-
-  const handleLabelChange = useCallback(
-    (data: string, key = 'label') => {
-      setEditField({ ...editField, [key]: data })
-    },
-    [editField],
-  )
 
   const handleEdit = useCallback(() => {
     if (!isEdit) {
@@ -26,9 +19,9 @@ const useFieldSet = (field: FormField, onChange: any) => {
   }, [isEdit, setIsEdit])
 
   const handleSave = useCallback(() => {
-    handleFieldChange(editField)
+    fieldChange(editField)
     setIsEdit(false)
-  }, [editField, setIsEdit, handleFieldChange])
+  }, [editField, setIsEdit, fieldChange])
 
   const handleCancel = useCallback(() => {
     setIsEdit(false)
@@ -37,14 +30,13 @@ const useFieldSet = (field: FormField, onChange: any) => {
   const handleDelete = useCallback(
     (id: string) => {
       handleRemoveField(id)
-      console.log('handleDelete', id)
     },
     [handleRemoveField],
   )
 
-  const onRequiredChange = useCallback(
-    (checked: boolean) => {
-      setEditField({ ...editField, required: checked })
+  const handleFieldChange = useCallback(
+    (key: string, data: any) => {
+      setEditField({ ...editField, [key]: data })
     },
     [editField, setEditField],
   )
@@ -55,12 +47,11 @@ const useFieldSet = (field: FormField, onChange: any) => {
     isEdit,
     editField,
     renderData,
-    handleLabelChange,
     handleEdit,
     handleSave,
     handleCancel,
     handleDelete,
-    onRequiredChange,
+    handleFieldChange,
   }
 }
 

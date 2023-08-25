@@ -15,16 +15,10 @@ export default function SingleChoice({
   onChange: any
   provided: any
 }) {
-  const {
-    isEdit,
-    renderData,
-    handleLabelChange,
-    handleEdit,
-    handleSave,
-    handleCancel,
-    handleDelete,
-    onRequiredChange,
-  } = useFieldSet(field, onChange)
+  const { isEdit, renderData, handleEdit, handleSave, handleCancel, handleDelete, handleFieldChange } = useFieldSet(
+    field,
+    onChange,
+  )
 
   return (
     <FieldCard
@@ -39,14 +33,14 @@ export default function SingleChoice({
       <ItemLabel
         edit={isEdit}
         value={renderData.label}
-        onChange={handleLabelChange}
+        onChange={handleFieldChange}
         className="form-control"
         required={renderData.required}
       />
 
-      <Options icon="fa-circle" />
+      <Options icon="fa-circle-dot" edit={isEdit} Options={renderData.options} onChange={handleFieldChange} />
 
-      <RequiredField edit={isEdit} value={!!renderData.required} onChange={onRequiredChange} />
+      <RequiredField edit={isEdit} value={!!renderData.required} onChange={handleFieldChange} id={renderData.id} />
     </FieldCard>
   )
 }

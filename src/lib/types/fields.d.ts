@@ -7,6 +7,8 @@ export interface BaseFormField {
   fieldName: string
   placeholder?: string
   required?: boolean | undefined
+  options?: Array<Option>
+  displayType?: 'horizontal' | 'vertical'
 }
 
 export interface Option {
@@ -23,4 +25,4 @@ export interface TextValueField extends BaseFormField {
   value: string
 }
 
-export type FormField = OptionValueField | TextValueField
+export type FormField = BaseFormField

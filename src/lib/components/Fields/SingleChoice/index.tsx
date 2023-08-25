@@ -24,6 +24,7 @@ export default function SingleChoice({
     handleCancel,
     handleDelete,
     onRequiredChange,
+    handleOptionChange,
   } = useFieldSet(field, onChange)
 
   return (
@@ -44,7 +45,7 @@ export default function SingleChoice({
         required={renderData.required}
       />
 
-      <Options icon="fa-circle" />
+      <Options icon="fa-circle-dot" Options={renderData.options} onChange={handleOptionChange} />
 
       <RequiredField edit={isEdit} value={!!renderData.required} onChange={onRequiredChange} />
     </FieldCard>

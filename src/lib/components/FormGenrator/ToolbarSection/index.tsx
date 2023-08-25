@@ -21,9 +21,9 @@ export default function ToolbarSection() {
       case ToolbarItemTypes.LongText:
         handleAddNewData(n.getNewLongText())
         break
-      // case ToolbarItemTypes.SingleChoice:
-      //   handleAddNewData(n.getNewSingleChoice())
-      //   break
+      case ToolbarItemTypes.SingleChoice:
+        handleAddNewData(n.getNewSingleChoice())
+        break
       case ToolbarItemTypes.ShortText:
         handleAddNewData(n.getNewShortText())
         break

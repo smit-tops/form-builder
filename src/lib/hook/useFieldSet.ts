@@ -1,5 +1,5 @@
 import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react'
-import { FormField } from '../types/fields'
+import { FormField, Option } from '../types/fields'
 import { FormGenratorContext } from '../context/FormContext'
 
 const useFieldSet = (field: FormField, onChange: any) => {
@@ -49,6 +49,14 @@ const useFieldSet = (field: FormField, onChange: any) => {
     [editField, setEditField],
   )
 
+  const handleOptionChange = useCallback(
+    (options: Array<Option>) => {
+      setEditField({ ...editField, options })
+      handleFieldChange(editField)
+    },
+    [editField, setEditField, handleFieldChange],
+  )
+
   const renderData = useMemo(() => (isEdit ? editField : field), [editField, isEdit, field])
 
   return {
@@ -61,6 +69,7 @@ const useFieldSet = (field: FormField, onChange: any) => {
     handleCancel,
     handleDelete,
     onRequiredChange,
+    handleOptionChange,
   }
 }
 

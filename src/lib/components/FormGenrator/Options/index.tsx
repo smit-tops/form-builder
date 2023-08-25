@@ -18,7 +18,7 @@ export default function Options({
   onChange,
 }: {
   icon?: string
-  Options: Array<Option>
+  Options?: Array<Option>
   onChange: (options: Array<Option>) => void
 }) {
   const [options, setOptions] = useState<Array<Option>>(Options || [])

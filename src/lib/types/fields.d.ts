@@ -7,7 +7,7 @@ export interface BaseFormField {
   fieldName: string
   placeholder?: string
   required?: boolean | undefined
-  options: Array<Option>
+  options?: Array<Option>
 }
 
 export interface Option {

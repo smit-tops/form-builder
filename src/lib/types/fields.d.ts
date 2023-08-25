@@ -8,6 +8,7 @@ export interface BaseFormField {
   placeholder?: string
   required?: boolean | undefined
   options?: Array<Option>
+  displayType?: 'horizontal' | 'vertical'
 }
 
 export interface Option {

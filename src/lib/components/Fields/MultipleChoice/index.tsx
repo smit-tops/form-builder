@@ -5,6 +5,7 @@ import useFieldSet from '../../../hook/useFieldSet'
 import FieldCard from '../../FormGenrator/FieldCard'
 import Options from '../../FormGenrator/Options'
 import RequiredField from '../../FormGenrator/RequiredField'
+import OptionsDisplayType from '../../FormGenrator/Options/OptionsDisplayType'
 
 export default function MultiChoiceField({
   field,
@@ -15,17 +16,10 @@ export default function MultiChoiceField({
   onChange: any
   provided: any
 }) {
-  const {
-    isEdit,
-    handleLabelChange,
-    handleEdit,
-    handleSave,
-    handleCancel,
-    handleDelete,
-    renderData,
-    handleOptionChange,
-    onRequiredChange,
-  } = useFieldSet(field, onChange)
+  const { isEdit, handleEdit, handleSave, handleCancel, handleDelete, renderData, handleFieldChange } = useFieldSet(
+    field,
+    onChange,
+  )
 
   return (
     <FieldCard
@@ -40,14 +34,21 @@ export default function MultiChoiceField({
       <ItemLabel
         edit={isEdit}
         value={renderData.label}
-        onChange={handleLabelChange}
+        onChange={handleFieldChange}
         className="form-control"
         required={renderData.required}
       />
 
-      <Options icon="fa-check-square" Options={renderData.options} onChange={handleOptionChange} />
+      <Options icon="fa-check-square" Options={renderData.options} onChange={handleFieldChange} />
 
-      <RequiredField edit={isEdit} value={!!renderData.required} onChange={onRequiredChange} />
+      <RequiredField edit={isEdit} value={!!renderData.required} onChange={handleFieldChange} id={renderData.id} />
+
+      <OptionsDisplayType
+        edit={isEdit}
+        value={!!renderData.displayType}
+        onChange={handleFieldChange}
+        id={renderData.id}
+      />
     </FieldCard>
   )
 }

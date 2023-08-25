@@ -14,16 +14,10 @@ export default function MultilineInput({
   onChange: any
   provided: any
 }) {
-  const {
-    isEdit,
-    renderData,
-    handleLabelChange,
-    handleEdit,
-    handleSave,
-    handleCancel,
-    handleDelete,
-    onRequiredChange,
-  } = useFieldSet(field, onChange)
+  const { isEdit, renderData, handleEdit, handleSave, handleCancel, handleDelete, handleFieldChange } = useFieldSet(
+    field,
+    onChange,
+  )
 
   return (
     <FieldCard
@@ -38,14 +32,14 @@ export default function MultilineInput({
       <ItemLabel
         edit={isEdit}
         value={renderData.label}
-        onChange={handleLabelChange}
+        onChange={handleFieldChange}
         className="form-control"
         required={renderData.required}
       />
 
       <textarea className="form-control my-2" disabled />
 
-      <RequiredField edit={isEdit} value={renderData.required} onChange={onRequiredChange} />
+      <RequiredField edit={isEdit} value={renderData.required} onChange={handleFieldChange} id={renderData.id} />
     </FieldCard>
   )
 }

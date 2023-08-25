@@ -13,7 +13,7 @@ export default function ParagraphField({
   onChange: any
   provided: any
 }) {
-  const { isEdit, handleLabelChange, handleEdit, handleSave, handleCancel, handleDelete, renderData } = useFieldSet(
+  const { isEdit, handleFieldChange, handleEdit, handleSave, handleCancel, handleDelete, renderData } = useFieldSet(
     field,
     onChange,
   )
@@ -32,7 +32,7 @@ export default function ParagraphField({
         <ItemLabel
           edit={isEdit}
           value={renderData.value}
-          onChange={handleLabelChange}
+          onChange={handleFieldChange}
           className="form-control"
           label="Content"
           keyField="value"

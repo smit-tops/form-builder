@@ -5,7 +5,7 @@ import useFieldSet from '../../../hook/useFieldSet'
 import FieldCard from '../../FormGenrator/FieldCard'
 
 export default function LabelField({ field, onChange, provided }: { field: FormField; onChange: any; provided: any }) {
-  const { isEdit, handleLabelChange, handleEdit, handleSave, handleCancel, handleDelete, renderData } = useFieldSet(
+  const { isEdit, handleFieldChange, handleEdit, handleSave, handleCancel, handleDelete, renderData } = useFieldSet(
     field,
     onChange,
   )
@@ -24,7 +24,7 @@ export default function LabelField({ field, onChange, provided }: { field: FormF
         <ItemLabel
           edit={isEdit}
           value={renderData.label}
-          onChange={handleLabelChange}
+          onChange={handleFieldChange}
           className="form-control"
           label="Heaader"
           keyField="label"
@@ -32,7 +32,7 @@ export default function LabelField({ field, onChange, provided }: { field: FormF
         <ItemLabel
           edit={isEdit}
           value={renderData.subLabel}
-          onChange={handleLabelChange}
+          onChange={handleFieldChange}
           className="form-control"
           label="Sub Header"
           keyField="subLabel"

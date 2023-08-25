@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useEffect, useMemo, useState } from 'react'
 
-const RequiredField = ({
+const OptionsDisplayType = ({
   value = false,
   onChange,
   label,
@@ -21,14 +21,10 @@ const RequiredField = ({
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setChecked(e.target.checked)
-    if (onChange) onChange('required', e.target.checked)
+    if (onChange) onChange('displayType', e.target.checked)
   }
 
-  const labelId = useMemo(() => id + 'required', [id])
-
-  if (!edit) {
-    return null
-  }
+  const labelId = useMemo(() => id + '_displayType', [id])
 
   return (
     <span>
@@ -42,11 +38,11 @@ const RequiredField = ({
         value={labelId}
         disabled={!edit}
       />
-      <label className="form-check-label mx-2" htmlFor={labelId}>
-        {label ?? 'Required'}
+      <label className="form-check-label mx-2 cursor-pointer" htmlFor={labelId}>
+        {label ?? 'Display Type'}
       </label>
     </span>
   )
 }
 
-export default RequiredField
+export default OptionsDisplayType

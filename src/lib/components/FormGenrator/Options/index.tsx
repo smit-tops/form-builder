@@ -19,7 +19,7 @@ export default function Options({
 }: {
   icon?: string
   Options?: Array<Option>
-  onChange: (options: Array<Option>) => void
+  onChange: (key: string, options: Array<Option>) => void
 }) {
   const [options, setOptions] = useState<Array<Option>>(Options || [])
 
@@ -38,7 +38,7 @@ export default function Options({
   }
 
   useEffect(() => {
-    onChange(options)
+    onChange('options', options)
   }, [options])
 
   return (

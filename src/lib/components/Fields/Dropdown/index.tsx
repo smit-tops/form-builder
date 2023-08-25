@@ -15,17 +15,10 @@ export default function DropdownField({
   onChange: any
   provided: any
 }) {
-  const {
-    isEdit,
-    handleLabelChange,
-    handleEdit,
-    handleSave,
-    handleCancel,
-    handleDelete,
-    renderData,
-    handleOptionChange,
-    onRequiredChange,
-  } = useFieldSet(field, onChange)
+  const { isEdit, handleEdit, handleSave, handleCancel, handleDelete, renderData, handleFieldChange } = useFieldSet(
+    field,
+    onChange,
+  )
 
   return (
     <FieldCard
@@ -40,14 +33,14 @@ export default function DropdownField({
       <ItemLabel
         edit={isEdit}
         value={renderData.label}
-        onChange={handleLabelChange}
+        onChange={handleFieldChange}
         className="form-control"
         required={renderData.required}
       />
 
-      <Options Options={renderData.options} onChange={handleOptionChange} />
+      <Options Options={renderData.options} onChange={handleFieldChange} />
 
-      <RequiredField edit={isEdit} value={!!renderData.required} onChange={onRequiredChange} />
+      <RequiredField edit={isEdit} value={!!renderData.required} onChange={handleFieldChange} id={renderData.id} />
     </FieldCard>
   )
 }

@@ -7,12 +7,14 @@ const SingleOption = ({
   icon,
   index,
   onChange,
+  edit,
 }: {
   option: Option
   onDelete: (id: string) => void
   onChange: (value: string, index: number) => void
   icon?: string
   index: number
+  edit?: boolean
 }) => {
   const [isInputMode, setIsInputMode] = useState(false)
   const [value, setValue] = useState(option.label)
@@ -25,7 +27,7 @@ const SingleOption = ({
     setValue(e.target.value)
   }
   const handleOnClick = () => {
-    setIsInputMode(true)
+    if (edit) setIsInputMode(true)
   }
 
   useEffect(() => {

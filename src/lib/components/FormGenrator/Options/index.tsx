@@ -16,10 +16,12 @@ export default function Options({
   icon,
   Options,
   onChange,
+  edit,
 }: {
   icon?: string
   Options?: Array<Option>
   onChange: (key: string, options: Array<Option>) => void
+  edit?: boolean
 }) {
   const [options, setOptions] = useState<Array<Option>>(Options || [])
 
@@ -51,6 +53,7 @@ export default function Options({
             icon={icon}
             onDelete={handleRemoveOption}
             onChange={handleChange}
+            edit={edit}
           />
         </div>
       ))}

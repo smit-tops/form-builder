@@ -10,9 +10,10 @@ import { ToolbarItemTypes } from '../../types/constants'
 import PreviewLabelField from '../../components/Fields/labelField/PreviewLabelField'
 import PreviewLineBreak from '../../components/Fields/LineBreak/PreviewLineBreak'
 import PreviewParagraph from '../../components/Fields/Paragraph/PreviewParagraph'
+import PreviewSingleChoice from '../../components/Fields/SingleChoice/PreviewSingleChoice'
+import PreviewMultiChoice from '../../components/Fields/MultipleChoice/PreviewMultiChoice'
+import PreviewDropdown from '../../components/Fields/Dropdown/PreviewDropdown'
 const FormPreview = ({ data }: any) => {
-  console.log('data', data)
-
   const renderSwitch = (item: FormField) => {
     const props = {
       field: item,
@@ -29,18 +30,18 @@ const FormPreview = ({ data }: any) => {
         return <PreviewMultilineInput {...props} />
       case ToolbarItemTypes.Heading:
         return <PreviewLabelField {...props} />
-      // case ToolbarItemTypes.SingleChoice:
-      //   return <SingleChoice {...props} />
+      case ToolbarItemTypes.SingleChoice:
+        return <PreviewSingleChoice {...props} />
       case ToolbarItemTypes.Paragraph:
         return <PreviewParagraph {...props} />
       case ToolbarItemTypes.LineBreak:
         return <PreviewLineBreak />
-      // case ToolbarItemTypes.MultipleChoice:
-      //   return <MultiChoiceField {...props} />
+      case ToolbarItemTypes.MultipleChoice:
+        return <PreviewMultiChoice {...props} />
       // case ToolbarItemTypes.Date:
       //   return <DateField {...props} />
-      // case ToolbarItemTypes.Dropdown:
-      //   return <DropdownField {...props} />
+      case ToolbarItemTypes.Dropdown:
+        return <PreviewDropdown {...props} />
       // case ToolbarItemTypes.Image:
       //   return <ImageField {...props} />
       // case ToolbarItemTypes.File:
@@ -58,6 +59,14 @@ const FormPreview = ({ data }: any) => {
         <div className="bg-white p-5">
           <FormHeader />
           <Form>
+            {/* <PreviewSingleChoice field={{ options: [{ name: 'Aqeeb' }, { name: 'Kashif' }] }} required />
+            <PreviewMultiChoice field={{ options: [{ name: 'Aqeeb' }, { name: 'Kashif' }] }} required />
+            <PreviewDropdown 
+              field={{ options: [{ name: 'Aqeeb' }, { name: 'Kashif' }] }}
+              label="Open this dropdown!"
+              required
+            />
+            */}
             {data &&
               data.map((item: FormField, index: number) => (
                 <div className="my-2" key={index}>

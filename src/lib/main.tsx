@@ -33,6 +33,10 @@ export const Main = () => {
     [data],
   )
 
+  const handleSubmit = (data: any) => {
+    console.log('data==>', data)
+  }
+
   // saveForm(mockForm)
 
   return (
@@ -42,7 +46,7 @@ export const Main = () => {
           Preview
         </button>
       </div>
-      {preview && <FormPreview data={data} />}
+      {preview && <FormPreview formData={data} onsubmit={handleSubmit} />}
       {!preview && <FormGenrator data={data} onChange={handleChnage} />}
     </div>
   )

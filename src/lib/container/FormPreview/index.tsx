@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Container, Form, Image, Col, Row, Button } from 'react-bootstrap'
-
 import PreviewInput from '../../components/Fields/InputField/PreviewInput'
 import PreviewMultilineInput from '../../components/Fields/MultilineInput/PreviewMultilineInput'
 import FormHeader from '../../components/FormPreview/FormHeader'
@@ -13,11 +12,19 @@ import PreviewParagraph from '../../components/Fields/Paragraph/PreviewParagraph
 import PreviewSingleChoice from '../../components/Fields/SingleChoice/PreviewSingleChoice'
 import PreviewMultiChoice from '../../components/Fields/MultipleChoice/PreviewMultiChoice'
 import PreviewDropdown from '../../components/Fields/Dropdown/PreviewDropdown'
-const FormPreview = ({ data }: any) => {
+
+const FormPreview = ({ formData, onsubmit }: any) => {
+  const [data, setData] = useState<Array<FormField>>([])
+
+  useEffect(() => {
+    if (formData) setData(formData ?? [])
+  }, [formData])
+
   const renderSwitch = (item: FormField) => {
     const props = {
       field: item,
       // onChange: handleChangeFormData,
+      setData,
       placeholder: 'Enter',
       key: item.type,
       label: item.label,
@@ -53,12 +60,17 @@ const FormPreview = ({ data }: any) => {
     }
   }
 
+  const handleSubmit = (e: any) => {
+    e.preventDefault()
+    onsubmit(data)
+  }
+
   return (
     <div style={{ background: '#efefef' }} className="py-5">
       <Container>
         <div className="bg-white p-5">
           <FormHeader />
-          <Form>
+          <Form onSubmit={handleSubmit}>
             {/* <PreviewSingleChoice field={{ options: [{ name: 'Aqeeb' }, { name: 'Kashif' }] }} required />
             <PreviewMultiChoice field={{ options: [{ name: 'Aqeeb' }, { name: 'Kashif' }] }} required />
             <PreviewDropdown 

@@ -4,13 +4,15 @@ import { FormField } from './types/fields'
 import { getForm, saveForm } from './service/formServices'
 import { mockForm } from './types/constants'
 import FormPreview from './container/FormPreview'
+import ResetPreview from './components/FormPreview/ResetPreview'
 
 export const Main = () => {
   const [data, setData] = useState<Array<FormField>>([])
+  const [preview, setPreview] = useState(false)
 
   useEffect(() => {
     setData(getForm())
-  }, [])
+  }, [preview])
 
   const handleChnage = useCallback(
     (newItem: FormField) => {
@@ -32,18 +34,21 @@ export const Main = () => {
     [data],
   )
 
-  // saveForm(mockForm)
+  const handleSubmit = (data: any) => {
+    console.log('data==>', data)
+  }
 
-  const [preview, setPreview] = useState(false)
+  // saveForm(mockForm)
 
   return (
     <div>
-      <div className="text-center my-3">
-        <button className="btn btn-darkblue mx-auto" onClick={() => setPreview(!preview)}>
+      <div className=" my-3 d-flex justify-content-center gap-2">
+        <button className="btn btn-darkblue " onClick={() => setPreview(!preview)}>
           Preview
         </button>
+        <ResetPreview setData={setData} />
       </div>
-      {preview && <FormPreview data={data} />}
+      {preview && <FormPreview formData={data} onsubmit={handleSubmit} />}
       {!preview && <FormGenrator data={data} onChange={handleChnage} />}
     </div>
   )

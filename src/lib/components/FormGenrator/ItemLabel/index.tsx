@@ -28,14 +28,13 @@ const ItemLabel = ({
   const handleChanges = (event: any, editor: any) => {
     const dataValue = editor.getData()
     setData(dataValue)
-    if (onChange) onChange('label', dataValue, keyField)
+    if (onChange) onChange(keyField ?? 'label', dataValue)
   }
 
   if (!edit) {
     return (
-      <div className="d-flex">
+      <div className="">
         <div dangerouslySetInnerHTML={{ __html: value }} className="" />
-        {required && <div className="ml-2 text-danger">*</div>}
       </div>
     )
   }
@@ -50,7 +49,7 @@ const ItemLabel = ({
           className="form-control"
           value={value}
           onChange={(e) => {
-            if (onChange) onChange(e.target.value, keyField)
+            if (onChange) onChange('subLabel', e.target.value, keyField)
           }}
         />
       )}

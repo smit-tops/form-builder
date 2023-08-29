@@ -26,10 +26,6 @@ const RequiredField = ({
 
   const labelId = useMemo(() => id + 'required', [id])
 
-  if (!edit) {
-    return null
-  }
-
   return (
     <span>
       <input

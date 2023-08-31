@@ -1,12 +1,27 @@
 import React, { useContext, useMemo } from 'react'
-import { ToolbarItemTypes, ToolbarItems } from '../../../types/constants'
-import * as n from '../../../service/initialField'
-import { addField } from '../../../service/formServices'
 import { FormGenratorContext } from '../../../context/FormContext'
+import { addField } from '../../../service/formServices'
+import * as n from '../../../service/initialField'
+import { ToolbarItemTypes, ToolbarItems } from '../../../types/constants'
 import { FormField } from '../../../types/fields'
 
 export default function ToolbarSection() {
   const { toolBar, setFormData } = useContext(FormGenratorContext)
+
+  const itemToFunctionMap: any = {
+    [ToolbarItemTypes.Heading]: n.getNewHeading,
+    [ToolbarItemTypes.LongText]: n.getNewLongText,
+    [ToolbarItemTypes.SingleChoice]: n.getNewSingleChoice,
+    [ToolbarItemTypes.ShortText]: n.getNewShortText,
+    [ToolbarItemTypes.Paragraph]: n.getNewParagraph,
+    [ToolbarItemTypes.LineBreak]: n.getNewLineBreak,
+    [ToolbarItemTypes.MultipleChoice]: n.getNewMultipleChoice,
+    [ToolbarItemTypes.Date]: n.getNewDate,
+    [ToolbarItemTypes.Dropdown]: n.getNewDropdown,
+    [ToolbarItemTypes.Image]: n.getNewImage,
+    [ToolbarItemTypes.File]: n.getNewFile,
+    [ToolbarItemTypes.TwoColumns]: n.getNewTwoColumn,
+  }
 
   const handleAddNewData = (newData: FormField) => {
     addField(newData)
@@ -14,59 +29,16 @@ export default function ToolbarSection() {
   }
 
   const handleClick = (key: string) => {
-    switch (key) {
-      case ToolbarItemTypes.Heading:
-        handleAddNewData(n.getNewHeading())
-        break
-      case ToolbarItemTypes.LongText:
-        handleAddNewData(n.getNewLongText())
-        break
-      case ToolbarItemTypes.SingleChoice:
-        handleAddNewData(n.getNewSingleChoice())
-        break
-      case ToolbarItemTypes.ShortText:
-        handleAddNewData(n.getNewShortText())
-        break
-      case ToolbarItemTypes.Paragraph:
-        handleAddNewData(n.getNewParagraph())
-        break
-      case ToolbarItemTypes.LineBreak:
-        handleAddNewData(n.getNewLineBreak())
-        break
-      case ToolbarItemTypes.MultipleChoice:
-        handleAddNewData(n.getNewMultipleChoice())
-        break
-
-      case ToolbarItemTypes.Date:
-        handleAddNewData(n.getNewDate())
-        break
-      case ToolbarItemTypes.Dropdown:
-        handleAddNewData(n.getNewDropdown())
-        break
-
-      case ToolbarItemTypes.Image:
-        handleAddNewData(n.getNewImage())
-        break
-      case ToolbarItemTypes.File:
-        handleAddNewData(n.getNewFile())
-        break
-      case ToolbarItemTypes.TwoColumns:
-        handleAddNewData(n.getNewTwoColumn())
-        break
-
-      default:
+    const selectedFunction = itemToFunctionMap[key]
+    if (selectedFunction) {
+      handleAddNewData(selectedFunction())
     }
   }
 
-  const items = useMemo(() => {
-    if (toolBar) {
-      return toolBar
-    }
-    return ToolbarItems || []
-  }, [toolBar])
+  const items = useMemo(() => toolBar || ToolbarItems || [], [toolBar])
 
   return (
-    <div className=" text-center">
+    <div className="text-center">
       <div className="toolbox">
         {items.map((item) => (
           <div className="iconBox cursor-pointer" key={item.key} onClick={() => handleClick(item.key)}>

@@ -9,6 +9,7 @@ export interface BaseFormField {
   required?: boolean | undefined
   options?: Array<Option>
   displayType?: 'horizontal' | 'vertical'
+  data?: any
 }
 
 export interface Option {

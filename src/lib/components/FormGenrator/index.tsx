@@ -27,6 +27,7 @@ export default function FieldEditSection() {
       field: item,
       onChange: handleChangeFormData,
       key: item.type,
+      renderSwitch,
     }
 
     switch (item.type) {

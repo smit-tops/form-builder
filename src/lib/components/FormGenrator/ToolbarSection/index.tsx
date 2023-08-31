@@ -35,7 +35,7 @@ export default function ToolbarSection() {
     }
   }
 
-  const items = useMemo(() => (toolBar?.length === 0 ? ToolbarItems : toolBar), [toolBar])
+  const items = useMemo(() => (toolBar?.length === 0 ? ToolbarItems : toolBar || []), [toolBar])
 
   return (
     <div className="text-center">

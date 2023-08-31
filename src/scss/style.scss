@@ -1,39 +1,39 @@
-@import "./init.scss";
+@import './init.scss';
 
-@import "bootstrap/utilities";
-@import "bootstrap/root";
-@import "bootstrap/reboot";
-@import "bootstrap/type";
-@import "bootstrap/images";
-@import "bootstrap/containers";
-@import "bootstrap/grid";
-@import "bootstrap/tables";
-@import "bootstrap/forms";
-@import "bootstrap/buttons";
-@import "bootstrap/transitions";
-@import "bootstrap/dropdown";
-@import "bootstrap/button-group";
-@import "bootstrap/nav";
-@import "bootstrap/navbar";
-@import "bootstrap/card";
-@import "bootstrap/accordion";
-@import "bootstrap/breadcrumb";
-@import "bootstrap/pagination";
-@import "bootstrap/badge";
-@import "bootstrap/alert";
-@import "bootstrap/progress";
-@import "bootstrap/list-group";
-@import "bootstrap/close";
-@import "bootstrap/toasts";
-@import "bootstrap/modal";
-@import "bootstrap/tooltip";
-@import "bootstrap/popover";
-@import "bootstrap/carousel";
-@import "bootstrap/spinners";
-@import "bootstrap/offcanvas";
-@import "bootstrap/placeholders";
-@import "bootstrap/helpers";
-@import "bootstrap/utilities/api";
+@import 'bootstrap/utilities';
+@import 'bootstrap/root';
+@import 'bootstrap/reboot';
+@import 'bootstrap/type';
+@import 'bootstrap/images';
+@import 'bootstrap/containers';
+@import 'bootstrap/grid';
+@import 'bootstrap/tables';
+@import 'bootstrap/forms';
+@import 'bootstrap/buttons';
+@import 'bootstrap/transitions';
+@import 'bootstrap/dropdown';
+@import 'bootstrap/button-group';
+@import 'bootstrap/nav';
+@import 'bootstrap/navbar';
+@import 'bootstrap/card';
+@import 'bootstrap/accordion';
+@import 'bootstrap/breadcrumb';
+@import 'bootstrap/pagination';
+@import 'bootstrap/badge';
+@import 'bootstrap/alert';
+@import 'bootstrap/progress';
+@import 'bootstrap/list-group';
+@import 'bootstrap/close';
+@import 'bootstrap/toasts';
+@import 'bootstrap/modal';
+@import 'bootstrap/tooltip';
+@import 'bootstrap/popover';
+@import 'bootstrap/carousel';
+@import 'bootstrap/spinners';
+@import 'bootstrap/offcanvas';
+@import 'bootstrap/placeholders';
+@import 'bootstrap/helpers';
+@import 'bootstrap/utilities/api';
 
 ::-webkit-scrollbar {
   width: 7px;
@@ -257,7 +257,7 @@ ul {
 
 .slider:before {
   position: absolute;
-  content: "";
+  content: '';
   height: 26px;
   width: 26px;
   right: 4px;
@@ -326,8 +326,8 @@ input:checked + .slider:before {
   opacity: 0;
 }
 
-input[type="date"]::-webkit-inner-spin-button,
-input[type="date"]::-webkit-calendar-picker-indicator {
+input[type='date']::-webkit-inner-spin-button,
+input[type='date']::-webkit-calendar-picker-indicator {
   opacity: 0;
 }
 
@@ -402,4 +402,26 @@ $practicesBg1: linear-gradient(90deg, #7488eb 6.91%, #2b40b7 100%);
   box-shadow: none !important;
 }
 
+.inputfile {
+  background: rgba(122, 219, 209, 0.1);
+  border: 1px dashed #7adbd1;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 
+  input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    left: 0;
+    top: 0;
+  }
+
+  i {
+    color: #7adbd1;
+  }
+}

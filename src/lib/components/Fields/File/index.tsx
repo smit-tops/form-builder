@@ -29,7 +29,10 @@ export default function FileField({ field, onChange, provided }: { field: FormFi
           label="Select File"
           keyField="label"
         />
-        FILE OPTIONS
+        <div className="inputfile py-5 mt-3">
+          <i className="fa-light fa-cloud-arrow-up fa-2x" />
+          <span className="fw-bolder mt-2">Upload File</span>
+        </div>
       </FieldCard>
     </>
   )

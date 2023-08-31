@@ -47,6 +47,15 @@ export const Main = () => {
           Preview
         </button>
         <ResetPreview setData={setData} />
+        <button
+          className="btn btn-darkblue "
+          onClick={() => {
+            localStorage.removeItem('formData')
+            setData([])
+          }}
+        >
+          Clear All
+        </button>
       </div>
       {preview && <FormPreview formData={data} onsubmit={handleSubmit} />}
       {!preview && <FormGenrator data={data} onChange={handleChnage} />}

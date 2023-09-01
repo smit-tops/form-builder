@@ -1,41 +1,39 @@
-import { useEffect, useRef, useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Option } from '../../../types/fields'
 
-const SingleOption = ({
-  option,
-  onDelete,
-  icon,
-  index,
-  onChange,
-  edit,
-}: {
+interface SingleOptionProps {
   option: Option
   onDelete: (id: string) => void
   onChange: (value: string, index: number) => void
   icon?: string
   index: number
   edit?: boolean
-}) => {
+}
+
+export default function SingleOption({ option, onDelete, icon, index, onChange, edit }: SingleOptionProps) {
   const [isInputMode, setIsInputMode] = useState(false)
   const [value, setValue] = useState(option.label)
   const inputRef = useRef<HTMLInputElement>(null)
-  const handleOnBlur = (e: any) => {
-    console.log('essss', e)
 
+  const handleBlur = () => {
     setIsInputMode(false)
     onChange(value, index)
   }
-  const handleOnChange = (e: any) => {
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value)
   }
-  const handleOnClick = () => {
+
+  const handleClick = () => {
     if (edit) setIsInputMode(true)
   }
 
   useEffect(() => {
     if (isInputMode && inputRef.current) {
-      inputRef.current.focus()
-      inputRef.current.select()
+      setTimeout(() => {
+        inputRef?.current?.focus()
+        inputRef?.current?.select()
+      }, 100)
     }
   }, [isInputMode])
 
@@ -49,11 +47,11 @@ const SingleOption = ({
             type="text"
             className="cursor-pointer mx-2 w-100 form-control form-control-1"
             value={value}
-            onChange={handleOnChange}
-            onBlur={handleOnBlur}
+            onChange={handleChange}
+            onBlur={handleBlur}
           />
         ) : (
-          <div className="mx-2 w-100" onClick={handleOnClick}>
+          <div className="mx-2 w-100" onMouseDown={handleClick}>
             {value}
           </div>
         )}
@@ -71,5 +69,3 @@ const SingleOption = ({
     </div>
   )
 }
-
-export default SingleOption

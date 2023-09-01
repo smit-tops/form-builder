@@ -39,7 +39,7 @@ export default function MultiChoiceField({
         required={renderData.required}
       />
 
-      <Options icon="fa-check-square" edit={isEdit} Options={renderData.options} onChange={handleFieldChange} />
+      <Options icon="fa-check-square" edit={isEdit} options={renderData.options} onChange={handleFieldChange} />
 
       <RequiredField edit={isEdit} value={!!renderData.required} onChange={handleFieldChange} id={renderData.id} />
 

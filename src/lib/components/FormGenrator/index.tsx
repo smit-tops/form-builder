@@ -1,12 +1,13 @@
 import React, { useContext } from 'react'
 import { Col, Row } from 'react-bootstrap'
-import TwoColumn from './TwoColumn'
-import InputField from '../Fields/InputField'
-import LabelField from '../Fields/labelField'
-import { FormField } from '../../types/fields'
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
+
+import { FormField } from '../../types/fields'
 import { ToolbarItemTypes } from '../../types/constants'
 import { FormGenratorContext } from '../../context/FormContext'
+
+import InputField from '../Fields/InputField'
+import LabelField from '../Fields/labelField'
 import MultilineInput from '../Fields/MultilineInput'
 import SingleChoice from '../Fields/SingleChoice'
 import ParagraphField from '../Fields/Paragraph'
@@ -55,7 +56,6 @@ export default function FieldEditSection() {
         return <FileField {...props} />
       case ToolbarItemTypes.TwoColumns:
         return <TwoColumnsField {...props} />
-
       default:
         return null
     }

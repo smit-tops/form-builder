@@ -1,8 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { FormGenrator } from './container'
 import { FormField } from './types/fields'
-import { getForm, saveForm } from './service/formServices'
-import { mockForm } from './types/constants'
+import { getForm } from './service/formServices'
 import FormPreview from './container/FormPreview'
 import ResetPreview from './components/FormPreview/ResetPreview'
 
@@ -15,21 +14,9 @@ export const Main = () => {
   }, [preview])
 
   const handleChnage = useCallback(
-    (newItem: FormField) => {
-      if (Array.isArray(newItem)) {
-        setData(newItem)
-        localStorage.setItem('formData', JSON.stringify(newItem))
-      } else {
-        const newData = data.map((item: FormField) => {
-          if (item.id === newItem.id) {
-            return newItem
-          }
-          return item
-        })
-
-        setData(newData)
-        saveForm(newData)
-      }
+    (newItem: Array<FormField>) => {
+      setData(newItem)
+      localStorage.setItem('formData', JSON.stringify(newItem))
     },
     [data],
   )
@@ -38,8 +25,6 @@ export const Main = () => {
     console.log('data==>', data)
   }
 
-  // saveForm(mockForm)
-
   return (
     <div>
       <div className=" my-3 d-flex justify-content-center gap-2">
@@ -47,6 +32,15 @@ export const Main = () => {
           Preview
         </button>
         <ResetPreview setData={setData} />
+        <button
+          className="btn btn-darkblue "
+          onClick={() => {
+            localStorage.removeItem('formData')
+            setData([])
+          }}
+        >
+          Clear All
+        </button>
       </div>
       {preview && <FormPreview formData={data} onsubmit={handleSubmit} />}
       {!preview && <FormGenrator data={data} onChange={handleChnage} />}

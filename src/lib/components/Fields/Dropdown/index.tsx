@@ -38,7 +38,7 @@ export default function DropdownField({
         required={renderData.required}
       />
 
-      <Options edit={isEdit} Options={renderData.options} onChange={handleFieldChange} />
+      <Options edit={isEdit} options={renderData.options} onChange={handleFieldChange} />
 
       <RequiredField edit={isEdit} value={!!renderData.required} onChange={handleFieldChange} id={renderData.id} />
     </FieldCard>

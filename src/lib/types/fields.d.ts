@@ -8,9 +8,11 @@ export interface BaseFormField {
   placeholder?: string
   required?: boolean | undefined
   options?: Array<Option>
-  displayType?: 'horizontal' | 'vertical'
+  displayType?: IDisplayType
   data?: any
 }
+
+export type IDisplayType = 'horizontal' | 'vertical'
 
 export interface Option {
   label: string

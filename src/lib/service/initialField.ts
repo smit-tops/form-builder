@@ -50,7 +50,7 @@ export const getNewDropdown = (): FormField => {
     label: ToolbarHeadingTypes.Dropdown,
     value: FieldInitialValues.Dropdown,
     fieldName: ToolbarHeadingTypes.Dropdown,
-    options: defaultOptions,
+    options: [...defaultOptions],
   }
 }
 
@@ -61,7 +61,7 @@ export const getNewSingleChoice = (): FormField => {
     label: ToolbarHeadingTypes.SingleChoice,
     value: FieldInitialValues.SingleChoice,
     fieldName: ToolbarHeadingTypes.SingleChoice,
-    options: defaultOptions,
+    options: [...defaultOptions],
   }
 }
 
@@ -72,7 +72,8 @@ export const getNewMultipleChoice = (): FormField => {
     label: ToolbarHeadingTypes.MultipleChoice,
     value: FieldInitialValues.MultipleChoice,
     fieldName: ToolbarHeadingTypes.MultipleChoice,
-    options: defaultOptions,
+    displayType: 'vertical',
+    options: [...defaultOptions],
   }
 }
 
@@ -124,5 +125,6 @@ export const getNewTwoColumn = (): FormField => {
     label: ToolbarHeadingTypes.TwoColumns,
     value: FieldInitialValues.TwoColumns,
     fieldName: ToolbarHeadingTypes.TwoColumns,
+    data: [getNewShortText(), getNewShortText()],
   }
 }

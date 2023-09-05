@@ -36,7 +36,8 @@ const useFieldSet = (field: FormField, onChange: any) => {
 
   const handleFieldChange = useCallback(
     (key: string, data: any) => {
-      setEditField({ ...editField, [key]: data })
+      const newField = JSON.parse(JSON.stringify(editField))
+      setEditField({ ...newField, [key]: data })
     },
     [editField, setEditField],
   )

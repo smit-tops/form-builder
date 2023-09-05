@@ -72,6 +72,7 @@ export const getNewMultipleChoice = (): FormField => {
     label: ToolbarHeadingTypes.MultipleChoice,
     value: FieldInitialValues.MultipleChoice,
     fieldName: ToolbarHeadingTypes.MultipleChoice,
+    displayType: 'vertical',
     options: [...defaultOptions],
   }
 }

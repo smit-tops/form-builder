@@ -25,8 +25,9 @@ const createNewOption = (length: number, options: Option[]): Option => {
 
 export default function Options({ icon, options: initialOptions, onChange, edit }: OptionsProps) {
   const [options, setOptions] = useState<Option[]>(initialOptions || [])
-
+  const [newAdded, setNewAdded] = useState(true)
   const addOption = () => {
+    setNewAdded(true)
     setOptions([...options, createNewOption(options.length, options)])
   }
 
@@ -55,10 +56,19 @@ export default function Options({ icon, options: initialOptions, onChange, edit 
             onChange={handleOptionChange}
             edit={edit}
             index={index}
+            newAdded={index + 1 === options.length ? newAdded : false}
+            setNewAdded={setNewAdded}
           />
         </div>
       ))}
-      {edit && <i onClick={addOption} className="fa fa-plus mt-2 cursor-pointer" title="Add option"></i>}
+      {edit && (
+        <i
+          onMouseDown={addOption}
+          onClick={addOption}
+          className="fa fa-plus mt-2 cursor-pointer"
+          title="Add option"
+        ></i>
+      )}
     </div>
   )
 }

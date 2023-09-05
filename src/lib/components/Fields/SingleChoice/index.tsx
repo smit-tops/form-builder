@@ -5,6 +5,7 @@ import useFieldSet from '../../../hook/useFieldSet'
 import FieldCard from '../../FormGenrator/FieldCard'
 import ItemLabel from '../../FormGenrator/ItemLabel'
 import RequiredField from '../../FormGenrator/RequiredField'
+import OptionsDisplayType from '../../FormGenrator/Options/OptionsDisplayType'
 
 export default function SingleChoice({
   field,
@@ -39,6 +40,13 @@ export default function SingleChoice({
       />
 
       <Options icon="fa-circle-dot" edit={isEdit} options={renderData.options} onChange={handleFieldChange} />
+
+      <OptionsDisplayType
+        edit={isEdit}
+        value={renderData.displayType}
+        onChange={handleFieldChange}
+        id={renderData.id}
+      />
 
       <RequiredField edit={isEdit} value={!!renderData.required} onChange={handleFieldChange} id={renderData.id} />
     </FieldCard>

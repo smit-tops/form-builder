@@ -125,6 +125,9 @@ export const getNewTwoColumn = (): FormField => {
     label: ToolbarHeadingTypes.TwoColumns,
     value: FieldInitialValues.TwoColumns,
     fieldName: ToolbarHeadingTypes.TwoColumns,
-    data: [getNewShortText(), getNewShortText()],
+    data: {
+      left: getNewSingleChoice(),
+      right: {},
+    },
   }
 }

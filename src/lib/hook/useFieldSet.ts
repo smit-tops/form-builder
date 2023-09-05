@@ -5,7 +5,7 @@ import { FormGenratorContext } from '../context/FormContext'
 const useFieldSet = (field: FormField, onChange: any) => {
   const [isEdit, setIsEdit] = useState<boolean>(false)
   const [editField, setEditField] = useState<FormField>(field)
-  const { handleFieldChange: fieldChange, handleRemoveField } = useContext(FormGenratorContext)
+  const { handleFieldChange: fieldChange, handleRemoveField, formData } = useContext(FormGenratorContext)
 
   useEffect(() => {
     if (isEdit) setEditField(field)
@@ -18,10 +18,13 @@ const useFieldSet = (field: FormField, onChange: any) => {
     }
   }, [isEdit, setIsEdit])
 
-  const handleSave = useCallback(() => {
-    fieldChange(editField)
-    setIsEdit(false)
-  }, [editField, setIsEdit, fieldChange])
+  const handleSave = useCallback(
+    (newField: any) => {
+      fieldChange(newField || editField)
+      setIsEdit(false)
+    },
+    [editField, setIsEdit, fieldChange],
+  )
 
   const handleCancel = useCallback(() => {
     setIsEdit(false)
@@ -37,7 +40,21 @@ const useFieldSet = (field: FormField, onChange: any) => {
   const handleFieldChange = useCallback(
     (key: string, data: any) => {
       const newField = JSON.parse(JSON.stringify(editField))
-      setEditField({ ...newField, [key]: data })
+      if (editField?.columnId) {
+        const newFormData = formData?.map((form: any) => {
+          if (form.id === editField.columnId) {
+            const mainKey: any = form.data?.left?.id ? 'left' : 'right'
+
+            if (mainKey) {
+              form.data[mainKey] = { ...form.data[mainKey], [key]: data }
+            }
+          }
+          return form
+        })
+        onChange(newFormData)
+      } else {
+        setEditField({ ...newField, [key]: data })
+      }
     },
     [editField, setEditField],
   )

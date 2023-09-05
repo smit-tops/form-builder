@@ -8,9 +8,21 @@ interface SingleOptionProps {
   icon?: string
   index: number
   edit?: boolean
+  newAdded?: boolean
+  total?: number
+  setNewAdded?: any
 }
 
-export default function SingleOption({ option, onDelete, icon, index, onChange, edit }: SingleOptionProps) {
+export default function SingleOption({
+  option,
+  onDelete,
+  icon,
+  index,
+  onChange,
+  edit,
+  newAdded,
+  setNewAdded,
+}: SingleOptionProps) {
   const [isInputMode, setIsInputMode] = useState(false)
   const [value, setValue] = useState(option.label)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -19,6 +31,17 @@ export default function SingleOption({ option, onDelete, icon, index, onChange, 
     setIsInputMode(false)
     onChange(value, index)
   }
+
+  useEffect(() => {
+    setValue(option.label)
+  }, [option.label])
+
+  useEffect(() => {
+    if (newAdded && edit) {
+      setNewAdded(false)
+      setIsInputMode(true)
+    }
+  }, [newAdded])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value)

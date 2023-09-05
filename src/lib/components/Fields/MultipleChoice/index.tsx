@@ -41,14 +41,14 @@ export default function MultiChoiceField({
 
       <Options icon="fa-check-square" edit={isEdit} options={renderData.options} onChange={handleFieldChange} />
 
-      <RequiredField edit={isEdit} value={!!renderData.required} onChange={handleFieldChange} id={renderData.id} />
-
       <OptionsDisplayType
         edit={isEdit}
-        value={!!renderData.displayType}
+        value={renderData.displayType}
         onChange={handleFieldChange}
         id={renderData.id}
       />
+
+      <RequiredField edit={isEdit} value={!!renderData.required} onChange={handleFieldChange} id={renderData.id} />
     </FieldCard>
   )
 }

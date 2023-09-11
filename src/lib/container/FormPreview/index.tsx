@@ -12,6 +12,7 @@ import PreviewParagraph from '../../components/Fields/Paragraph/PreviewParagraph
 import PreviewSingleChoice from '../../components/Fields/SingleChoice/PreviewSingleChoice'
 import PreviewMultiChoice from '../../components/Fields/MultipleChoice/PreviewMultiChoice'
 import PreviewDropdown from '../../components/Fields/Dropdown/PreviewDropdown'
+import PreviewTwoColumns from '../../components/Fields/TwoColumns/PreviewTwoColumn'
 
 const FormPreview = ({ formData, onsubmit }: any) => {
   const [data, setData] = useState<Array<FormField>>([])
@@ -29,6 +30,7 @@ const FormPreview = ({ formData, onsubmit }: any) => {
       key: item.type,
       label: item.label,
       required: item.required,
+      renderSwitch,
     }
     switch (item.type) {
       case ToolbarItemTypes.ShortText:
@@ -53,8 +55,8 @@ const FormPreview = ({ formData, onsubmit }: any) => {
       //   return <ImageField {...props} />
       // case ToolbarItemTypes.File:
       //   return <FileField {...props} />
-      // case ToolbarItemTypes.TwoColumns:
-      //   return <TwoColumnsField {...props} />
+      case ToolbarItemTypes.TwoColumns:
+        return <PreviewTwoColumns {...props} />
       default:
         return null
     }

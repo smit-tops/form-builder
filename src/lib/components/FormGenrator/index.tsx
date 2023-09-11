@@ -77,7 +77,7 @@ export default function FieldEditSection() {
       const newFormData = [...(formData ?? [])]
       newFormData.splice(result.destination.index, 0, itemToFunctionMap[item.key]())
       handleChangeFormData(newFormData)
-    } else {
+    } else if (result.source.droppableId === 'optionDrag') {
       const items = [...(formData ?? [])]
       const [reorderedItem] = items.splice(result.source.index, 1)
       items.splice(result.destination.index, 0, reorderedItem)

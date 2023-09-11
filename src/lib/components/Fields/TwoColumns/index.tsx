@@ -43,53 +43,61 @@ export default function TwoColumnsField({
         provided={provided}
       >
         <Card.Body>
-          <DragDropContext onDragEnd={handleOnDragEnd}>
-            <Droppable droppableId="optionDrag" direction="horizontal">
-              {(provided: any) => (
-                <Row {...provided.droppableProps} ref={provided.innerRef}>
-                  {field?.data?.left && (
-                    <Draggable
-                      key={'option' + field?.data?.left.id}
-                      draggableId={'optionDrag' + field?.data?.left.id}
-                      index={0}
-                    >
-                      {(provided) => {
-                        return (
-                          <Col xs={6} className="my-2" ref={provided.innerRef} {...provided.draggableProps}>
-                            {field?.data?.left.id ? (
+          <Droppable droppableId="optionDragTwoColumn" direction="horizontal">
+            {(provided: any) => (
+              <Row {...provided.droppableProps} ref={provided.innerRef}>
+                {field?.data?.left && (
+                  <>
+                    {field?.data?.left.id && (
+                      <Draggable
+                        key={'option' + field?.data?.left.id}
+                        draggableId={'optionDrag' + field?.data?.left.id}
+                        index={0}
+                      >
+                        {(provided) => {
+                          return (
+                            <Col xs={6} className="my-2" ref={provided.innerRef} {...provided.draggableProps}>
                               <>{renderSwitch({ ...field?.data?.left, columnId: field.id }, provided)}</>
-                            ) : (
-                              <div className="dropzone">Drop Zone</div>
-                            )}
-                          </Col>
-                        )
-                      }}
-                    </Draggable>
-                  )}
-                  {field?.data?.left && (
-                    <Draggable
-                      key={'option' + field?.data?.right.id}
-                      draggableId={'optionDrag' + field?.data?.right.id}
-                      index={1}
-                    >
-                      {(provided) => {
-                        return (
-                          <Col xs={6} className="my-2" ref={provided.innerRef} {...provided.draggableProps}>
-                            {field?.data?.right.id ? (
-                              <>{renderSwitch({ ...field?.data?.right, columnId: field.id }, provided)}</>
-                            ) : (
-                              <div className="dropzone">Drop Zone</div>
-                            )}
-                          </Col>
-                        )
-                      }}
-                    </Draggable>
-                  )}
-                  {provided.placeholder}
-                </Row>
-              )}
-            </Droppable>
-          </DragDropContext>
+                            </Col>
+                          )
+                        }}
+                      </Draggable>
+                    )}
+                    {!field?.data?.left.id && (
+                      <Col xs={6}>
+                        <div className="dropzone">Drop Zone</div>
+                      </Col>
+                    )}
+                  </>
+                )}
+                {field?.data?.left && (
+                  <>
+                    {field?.data?.right.id && (
+                      <Draggable
+                        key={'option' + field?.data?.right.id}
+                        draggableId={'optionDrag' + field?.data?.right.id}
+                        index={1}
+                      >
+                        {(provided) => {
+                          return (
+                            <Col xs={6} className="my-2" ref={provided.innerRef} {...provided.draggableProps}>
+                              {renderSwitch({ ...field?.data?.right, columnId: field.id }, provided)}
+                            </Col>
+                          )
+                        }}
+                      </Draggable>
+                    )}
+                    {!field?.data?.right.id && (
+                      <Col xs={6}>
+                        <div className="dropzone">Drop Zone</div>
+                      </Col>
+                    )}
+                  </>
+                )}
+                {provided.placeholder}
+              </Row>
+            )}
+          </Droppable>
         </Card.Body>
       </FieldCard>
     </>

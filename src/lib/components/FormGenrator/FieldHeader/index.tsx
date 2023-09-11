@@ -23,7 +23,7 @@ const FieldHeader = ({
       <div className="card-title">{title}</div>
       <div className="card-toolbar">
         {onEdit && <i className="cursor-pointer fa-solid fa-pen-line icon" title="Edit" onClick={onEdit} />}
-        {/* <i className="cursor-pointer fa-solid fa-copy icon" title="Copy" onClick={() => handleCopyComponent(id)} /> */}
+        <i className="cursor-pointer fa-solid fa-copy icon" title="Copy" onClick={() => handleCopyComponent(id)} />
         <DeleteModal onClick={onDelete} />
         <div className="icon" {...provided?.dragHandleProps} title="Drag">
           <i className="cursor-pointer fa-solid fa-ellipsis-vertical" />

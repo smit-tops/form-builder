@@ -56,7 +56,6 @@ export const FormGenrator: React.FC<FormGeneratorProps> = ({ data = [], onChange
     <FormGenratorContext.Provider value={value}>
       <div className="form-builder">
         <div className="d-flex">
-          <ToolbarSection />
           <FieldEditSection />
         </div>
       </div>

@@ -1,27 +1,13 @@
 import React, { useContext, useMemo } from 'react'
 import { FormGenratorContext } from '../../../context/FormContext'
 import { addField } from '../../../service/formServices'
-import * as n from '../../../service/initialField'
-import { ToolbarItemTypes, ToolbarItems } from '../../../types/constants'
 import { FormField } from '../../../types/fields'
+import { Draggable, Droppable } from 'react-beautiful-dnd'
+import { IToolbarItem } from '../../../types/toolbar'
+import { itemToFunctionMap } from '../../../service/initialField'
 
-export default function ToolbarSection() {
-  const { toolBar, setFormData } = useContext(FormGenratorContext)
-
-  const itemToFunctionMap: any = {
-    [ToolbarItemTypes.Heading]: n.getNewHeading,
-    [ToolbarItemTypes.LongText]: n.getNewLongText,
-    [ToolbarItemTypes.SingleChoice]: n.getNewSingleChoice,
-    [ToolbarItemTypes.ShortText]: n.getNewShortText,
-    [ToolbarItemTypes.Paragraph]: n.getNewParagraph,
-    [ToolbarItemTypes.LineBreak]: n.getNewLineBreak,
-    [ToolbarItemTypes.MultipleChoice]: n.getNewMultipleChoice,
-    [ToolbarItemTypes.Date]: n.getNewDate,
-    [ToolbarItemTypes.Dropdown]: n.getNewDropdown,
-    [ToolbarItemTypes.Image]: n.getNewImage,
-    [ToolbarItemTypes.File]: n.getNewFile,
-    [ToolbarItemTypes.TwoColumns]: n.getNewTwoColumn,
-  }
+export default function ToolbarSection({ items, renderSwitch }: { items: IToolbarItem[]; renderSwitch?: any }) {
+  const { setFormData } = useContext(FormGenratorContext)
 
   const handleAddNewData = (newData: FormField) => {
     addField(newData)
@@ -35,20 +21,51 @@ export default function ToolbarSection() {
     }
   }
 
-  const items = useMemo(() => (toolBar?.length === 0 ? ToolbarItems : toolBar || []), [toolBar])
-
   return (
-    <div className="text-center">
-      <div className="toolbox">
-        {items.map((item) => (
-          <div className="iconBox cursor-pointer" key={item.key} onClick={() => handleClick(item.key)}>
-            <div className="iconBoxInner">
-              <i className={`icon fa-solid ${item.icon}`} />
-              <span className="d-block">{item.value}</span>
-            </div>
+    <Droppable
+      droppableId="toolbarOption"
+      isCombineEnabled={true}
+      isDropDisabled={false}
+      getContainerForClone={() => document.body}
+      ignoreContainerClipping={true}
+      renderClone={(provided, snapshot, rubric) => (
+        <div className="w-100 position-ansolute" {...provided.draggableProps}>
+          {renderSwitch(itemToFunctionMap[rubric.draggableId.split('/')[1]](), provided)}
+        </div>
+      )}
+    >
+      {(provided: any) => (
+        <div className="text-center" {...provided.droppableProps} ref={provided.innerRef}>
+          <div className="toolbox">
+            {items.map((item, index) => (
+              <Draggable
+                key={'toolbox' + index}
+                draggableId={'optionDragtoolbox' + index + '/' + item.key}
+                disableInteractiveElementBlocking={false}
+                index={index}
+                shouldRespectForcePress={false}
+              >
+                {(provided) => {
+                  return (
+                    <div
+                      className="iconBox cursor-pointer"
+                      key={item.key}
+                      onClick={() => handleClick(item.key)}
+                      ref={provided.innerRef}
+                      {...provided.draggableProps}
+                    >
+                      <div className="iconBoxInner" {...provided?.dragHandleProps}>
+                        <i className={`icon fa-solid ${item.icon}`} />
+                        <span className="d-block">{item.value}</span>
+                      </div>
+                    </div>
+                  )
+                }}
+              </Draggable>
+            ))}
           </div>
-        ))}
-      </div>
-    </div>
+        </div>
+      )}
+    </Droppable>
   )
 }

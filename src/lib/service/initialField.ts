@@ -131,3 +131,18 @@ export const getNewTwoColumn = (): FormField => {
     },
   }
 }
+
+export const itemToFunctionMap: any = {
+  [ToolbarItemTypes.Heading]: getNewHeading,
+  [ToolbarItemTypes.LongText]: getNewLongText,
+  [ToolbarItemTypes.SingleChoice]: getNewSingleChoice,
+  [ToolbarItemTypes.ShortText]: getNewShortText,
+  [ToolbarItemTypes.Paragraph]: getNewParagraph,
+  [ToolbarItemTypes.LineBreak]: getNewLineBreak,
+  [ToolbarItemTypes.MultipleChoice]: getNewMultipleChoice,
+  [ToolbarItemTypes.Date]: getNewDate,
+  [ToolbarItemTypes.Dropdown]: getNewDropdown,
+  [ToolbarItemTypes.Image]: getNewImage,
+  [ToolbarItemTypes.File]: getNewFile,
+  [ToolbarItemTypes.TwoColumns]: getNewTwoColumn,
+}

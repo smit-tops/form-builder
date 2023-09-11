@@ -20,7 +20,7 @@ const PreviewMultilineInput = ({
   required,
   type = 'text',
 }: PreviewInputPropTypes) => {
-  const [handleTextChange] = useHandleChange(setData, field)
+  const [handleTextChange] = useHandleChange(field, setData)
   return (
     <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
       {label ? (

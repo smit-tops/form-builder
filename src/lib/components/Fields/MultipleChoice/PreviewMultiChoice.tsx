@@ -31,20 +31,23 @@ const PreviewMultiChoice = ({ field, setData, required }: any) => {
           </div>
         </Form.Label>
       ) : null}
-      {field.options.map((item: any, index: number) => {
-        return (
-          <Form.Check
-            key={index}
-            type="checkbox"
-            id={item.value}
-            label={item.label}
-            required={required}
-            value={item.value}
-            checked={item.selected}
-            onClick={handleMultiSelect}
-          />
-        )
-      })}
+      <div>
+        {field.options.map((item: any, index: number) => {
+          return (
+            <Form.Check
+              key={index}
+              type="checkbox"
+              id={item.value}
+              inline={field.displayType === 'horizontal'}
+              label={item.label}
+              required={required}
+              value={item.value}
+              checked={item.selected}
+              onClick={handleMultiSelect}
+            />
+          )
+        })}
+      </div>
     </div>
   )
 }

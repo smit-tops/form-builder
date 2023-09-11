@@ -9,11 +9,11 @@ type PreviewInputPropTypes = {
   label: string
   placeholder: string
   type?: string
-  required?: boolean | undefined
+  required?: boolean
 }
 
 const PreviewInput = ({ field, setData, label, required, placeholder, type = 'text' }: PreviewInputPropTypes) => {
-  const [handleTextChange] = useHandleChange(setData, field)
+  const [handleTextChange] = useHandleChange(field, setData)
   return (
     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
       {label ? (

@@ -68,7 +68,7 @@ const FormPreview = ({ formData, onsubmit }: any) => {
   }
 
   return (
-    <div style={{ background: '#efefef' }} className="py-5">
+    <div style={{ background: '#efefef' }} className="py-5 form-builder">
       <Container>
         <div className="bg-white p-5">
           <FormHeader />

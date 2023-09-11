@@ -32,21 +32,24 @@ const PreviewSingleChoice = ({ field, setData, required }: any) => {
           </div>
         </Form.Label>
       ) : null}
-      {field.options.map((item: any, index: number) => {
-        return (
-          <Form.Check
-            key={index}
-            type="radio"
-            value={item.value}
-            id={item.label}
-            label={item.label}
-            name="PreviewSingleChoice"
-            checked={item.selected}
-            onChange={handleSingleSelect}
-            required={required}
-          />
-        )
-      })}
+      <div>
+        {field.options.map((item: any, index: number) => {
+          return (
+            <Form.Check
+              key={index}
+              type="radio"
+              value={item.value}
+              id={item.label}
+              label={item.label}
+              inline={field.displayType === 'horizontal'}
+              name="PreviewSingleChoice"
+              checked={item.selected}
+              onChange={handleSingleSelect}
+              required={required}
+            />
+          )
+        })}
+      </div>
     </div>
   )
 }

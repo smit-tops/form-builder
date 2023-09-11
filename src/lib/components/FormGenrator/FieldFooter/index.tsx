@@ -7,7 +7,7 @@ const FieldFooter = ({ onSave, onCancel, loader }: { onSave: () => void; onCance
         <button type="button" className="btn btn-outline-darkblue mx-2" onClick={onCancel}>
           Cancel
         </button>
-        <button type="submit" className="btn btn-darkblue" onClick={onSave}>
+        <button type="submit" className="btn btn-darkblue" onClick={() => onSave()}>
           Save
         </button>
       </div>

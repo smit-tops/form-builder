@@ -11,6 +11,7 @@ interface FormGeneratorProps {
   onChange?: (data: FormField[]) => void
   toolBar?: IToolbarItem[]
 }
+import { ToolbarItemTypes } from '../../types/constants'
 
 export const FormGenrator: React.FC<FormGeneratorProps> = ({ data = [], onChange, toolBar = [] }) => {
   const [formData, setFormData] = useState<FormField[]>(data)
@@ -27,6 +28,36 @@ export const FormGenrator: React.FC<FormGeneratorProps> = ({ data = [], onChange
     [onChange],
   )
 
+  const handleRemoveField = useCallback(
+    (fieldId: string) => {
+      const newFormData = formData.filter((field) => field.id !== fieldId)
+      console.log('newFormData', newFormData, newFormData.length === formData.length)
+
+      if (newFormData.length === formData.length) {
+        // check all Twocolumn left and right data if any remove from twi column object
+        const newFormData2 = formData.map((field) => {
+          if (field.type === ToolbarItemTypes.TwoColumns) {
+            console.log('field.data?.left?.id', field.data?.left?.id, field)
+
+            if (field.data?.left?.id === fieldId) {
+              field.data.left = {}
+            }
+            console.log(field.data?.right?.id, fieldId, field.data?.left?.id)
+
+            if (field.data?.right?.id === fieldId) {
+              field.data.right = {}
+            }
+          }
+          return field
+        })
+        handleChangeFormData(newFormData2)
+      } else {
+        handleChangeFormData(newFormData)
+      }
+    },
+    [formData, handleChangeFormData],
+  )
+
   const value = useMemo(
     () => ({
       formData,
@@ -39,7 +70,29 @@ export const FormGenrator: React.FC<FormGeneratorProps> = ({ data = [], onChange
       },
       handleRemoveField: (fieldId: string) => {
         const newFormData = formData.filter((field) => field.id !== fieldId)
-        handleChangeFormData(newFormData)
+        console.log('newFormData', newFormData, newFormData.length === formData.length)
+
+        if (newFormData.length === formData.length) {
+          // check all Twocolumn left and right data if any remove from twi column object
+          const newFormData2 = formData.map((field) => {
+            if (field.type === ToolbarItemTypes.TwoColumns) {
+              console.log('field.data?.left?.id', field.data?.left?.id, field)
+
+              if (field.data?.left?.id === fieldId) {
+                field.data.left = {}
+              }
+              console.log(field.data?.right?.id, fieldId, field.data?.left?.id)
+
+              if (field.data?.right?.id === fieldId) {
+                field.data.right = {}
+              }
+            }
+            return field
+          })
+          handleChangeFormData(newFormData2)
+        } else {
+          handleChangeFormData(newFormData)
+        }
       },
       handleCopyComponent: (id: string) => {
         const index = formData.findIndex((field) => field.id === id)

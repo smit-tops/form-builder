@@ -9,6 +9,11 @@ export interface BaseFormField {
   required?: boolean | undefined
   options?: Array<Option>
   displayType?: IDisplayType
+  data?: {
+    left: any
+    right: any
+  }
+  columnId?: string
 }
 
 export type IDisplayType = 'horizontal' | 'vertical'

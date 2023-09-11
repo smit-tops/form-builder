@@ -10,6 +10,7 @@ export const getNewHeading = (): FormField => {
     value: FieldInitialValues.Heading,
     subLabel: 'Sub Heading',
     fieldName: ToolbarHeadingTypes.Heading,
+    required: false,
   }
 }
 
@@ -20,6 +21,7 @@ export const getNewShortText = (): FormField => {
     label: ToolbarHeadingTypes.ShortText,
     value: FieldInitialValues.ShortText,
     fieldName: ToolbarHeadingTypes.ShortText,
+    required: false,
   }
 }
 
@@ -30,6 +32,7 @@ export const getNewLongText = (): FormField => {
     label: ToolbarHeadingTypes.LongText,
     value: FieldInitialValues.LongText,
     fieldName: ToolbarHeadingTypes.LongText,
+    required: false,
   }
 }
 
@@ -40,6 +43,7 @@ export const getNewParagraph = (): FormField => {
     label: ToolbarHeadingTypes.Paragraph,
     value: FieldInitialValues.Paragraph,
     fieldName: ToolbarHeadingTypes.Paragraph,
+    required: false,
   }
 }
 
@@ -51,6 +55,7 @@ export const getNewDropdown = (): FormField => {
     value: FieldInitialValues.Dropdown,
     fieldName: ToolbarHeadingTypes.Dropdown,
     options: [...defaultOptions],
+    required: false,
   }
 }
 
@@ -62,6 +67,7 @@ export const getNewSingleChoice = (): FormField => {
     value: FieldInitialValues.SingleChoice,
     fieldName: ToolbarHeadingTypes.SingleChoice,
     options: [...defaultOptions],
+    required: false,
   }
 }
 
@@ -74,6 +80,7 @@ export const getNewMultipleChoice = (): FormField => {
     fieldName: ToolbarHeadingTypes.MultipleChoice,
     displayType: 'vertical',
     options: [...defaultOptions],
+    required: false,
   }
 }
 
@@ -84,6 +91,7 @@ export const getNewDate = (): FormField => {
     label: ToolbarHeadingTypes.Date,
     value: FieldInitialValues.Date,
     fieldName: ToolbarHeadingTypes.Date,
+    required: false,
   }
 }
 
@@ -95,6 +103,7 @@ export const getNewImage = (): FormField => {
     label: ToolbarHeadingTypes.Image,
     value: FieldInitialValues.Image,
     fieldName: ToolbarHeadingTypes.Image,
+    required: false,
   }
 }
 
@@ -105,6 +114,7 @@ export const getNewFile = (): FormField => {
     label: ToolbarHeadingTypes.File,
     value: FieldInitialValues.File,
     fieldName: ToolbarHeadingTypes.File,
+    required: false,
   }
 }
 
@@ -115,6 +125,7 @@ export const getNewLineBreak = (): FormField => {
     label: ToolbarHeadingTypes.LineBreak,
     value: FieldInitialValues.LineBreak,
     fieldName: ToolbarHeadingTypes.LineBreak,
+    required: false,
   }
 }
 
@@ -125,7 +136,10 @@ export const getNewTwoColumn = (): FormField => {
     label: ToolbarHeadingTypes.TwoColumns,
     value: FieldInitialValues.TwoColumns,
     fieldName: ToolbarHeadingTypes.TwoColumns,
-    data: [getNewShortText(), getNewShortText()],
+    data: {
+      left: getNewSingleChoice(),
+      right: getNewSingleChoice(),
+    },
   }
 }
 

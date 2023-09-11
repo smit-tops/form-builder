@@ -1,3 +1,5 @@
+import { ToolbarItemTypes } from '../types/constants'
+
 const saveForm = (form: Array<any>) => {
   localStorage.setItem('formData', JSON.stringify(form))
 }

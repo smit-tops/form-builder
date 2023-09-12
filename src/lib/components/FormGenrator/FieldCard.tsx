@@ -27,7 +27,13 @@ const FieldCard = ({ handleDelete, handleEdit, handleCancel, handleSave, isEdit,
         }}
       >
         <Card ref={divRef}>
-          <FieldHeader onDelete={handleDelete} title={value.fieldName} provided={provided} id={value.id} />
+          <FieldHeader
+            onDelete={handleDelete}
+            title={value.fieldName}
+            provided={provided}
+            id={value.id}
+            onEdit={handleEdit}
+          />
           <Card.Body>{children}</Card.Body>
           {isEdit && (
             <Card.Footer>

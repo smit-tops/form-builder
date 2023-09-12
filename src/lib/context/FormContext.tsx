@@ -14,6 +14,12 @@ export type FormGenratorContextType = {
   handleCopyComponent?: any
 }
 
+export type FormPreviewContextType = {
+  formData?: Array<FormField>
+  setFormData?: any
+  handleChangeFormData?: any
+}
+
 export const FormGenratorContext = createContext<FormGenratorContextType>({
   formData: [],
   setFormData: () => {},
@@ -24,4 +30,10 @@ export const FormGenratorContext = createContext<FormGenratorContextType>({
   handleFieldChange: () => {},
   handleRemoveField: () => {},
   handleCopyComponent: () => {},
+})
+
+export const FormPreviewContext = createContext<FormPreviewContextType>({
+  formData: [],
+  setFormData: () => {},
+  handleChangeFormData: () => {},
 })

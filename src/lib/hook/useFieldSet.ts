@@ -43,7 +43,8 @@ const useFieldSet = (field: FormField, onChange: any) => {
       if (editField?.columnId) {
         const newFormData = formData?.map((form: any) => {
           if (form.id === editField.columnId) {
-            const mainKey: any = form.data?.left?.id ? 'left' : 'right'
+            const mainKey: any = form.data?.left?.id === editField?.id ? 'left' : 'right'
+            console.log('main Key', mainKey)
 
             if (mainKey) {
               form.data[mainKey] = { ...form.data[mainKey], [key]: data }

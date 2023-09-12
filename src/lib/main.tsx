@@ -42,7 +42,7 @@ export const Main = () => {
           Clear All
         </button>
       </div>
-      {preview && <FormPreview formData={data} onsubmit={handleSubmit} />}
+      {preview && <FormPreview formData={data} onSubmit={handleSubmit} />}
       {!preview && <FormGenrator data={data} onChange={handleChnage} />}
     </div>
   )

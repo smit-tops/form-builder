@@ -2,6 +2,7 @@ import React, { ChangeEvent } from 'react'
 import { Form } from 'react-bootstrap'
 import { FormField } from '../../../types/fields'
 import useHandleChange from '../../../hook/useHandleChange'
+import FieldPreviewLabel from '../../FormPreview/FieldPreviewLabel'
 
 type PreviewInputPropTypes = {
   field: FormField
@@ -13,17 +14,10 @@ type PreviewInputPropTypes = {
 }
 
 const PreviewInput = ({ field, setData, label, required, placeholder, type = 'text' }: PreviewInputPropTypes) => {
-  const [handleTextChange] = useHandleChange(field, setData)
+  const { handleTextChange } = useHandleChange(field)
   return (
     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-      {label ? (
-        <Form.Label>
-          <div className="d-flex">
-            <div dangerouslySetInnerHTML={{ __html: label }}></div>
-            {required && <div className="ml-2 text-danger">*</div>}
-          </div>
-        </Form.Label>
-      ) : null}
+      <FieldPreviewLabel required={!!required} label={field.label} />
       <Form.Control
         value={field.value}
         onChange={handleTextChange}

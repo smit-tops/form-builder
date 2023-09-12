@@ -1,10 +1,9 @@
 import React, { useMemo } from 'react'
-import ItemLabel from '../../FormGenrator/ItemLabel'
 import { FormField } from '../../../types/fields'
 import useFieldSet from '../../../hook/useFieldSet'
 import FieldCard from '../../FormGenrator/FieldCard'
 import { Card, Col, Row } from 'react-bootstrap'
-import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
+import { Draggable, Droppable } from 'react-beautiful-dnd'
 
 export default function TwoColumnsField({
   field,
@@ -19,17 +18,17 @@ export default function TwoColumnsField({
 }) {
   const { handleEdit, handleSave, handleCancel, handleDelete, renderData } = useFieldSet(field, onChange)
 
-  const handleOnDragEnd = (result: any) => {
-    if (!result.destination) return
-    if (field.data) {
-      // field.data. left and right swap
-      const left = field.data.left
-      const right = field.data.right
-      field.data.left = right
-      field.data.right = left
-      handleSave(field)
-    }
-  }
+  // const handleOnDragEnd = (result: any) => {
+  //   if (!result.destination) return
+  //   if (field.data) {
+  //     // field.data. left and right swap
+  //     const left = field.data.left
+  //     const right = field.data.right
+  //     field.data.left = right
+  //     field.data.right = left
+  //     handleSave(field)
+  //   }
+  // }
 
   return (
     <>
@@ -70,7 +69,7 @@ export default function TwoColumnsField({
                     )}
                   </>
                 )}
-                {field?.data?.left && (
+                {field?.data?.right && (
                   <>
                     {field?.data?.right.id && (
                       <Draggable

@@ -138,7 +138,7 @@ export const getNewTwoColumn = (): FormField => {
     fieldName: ToolbarHeadingTypes.TwoColumns,
     data: {
       left: getNewSingleChoice(),
-      right: getNewSingleChoice(),
+      right: getNewMultipleChoice(),
     },
   }
 }

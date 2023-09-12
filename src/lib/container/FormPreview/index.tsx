@@ -13,8 +13,9 @@ import PreviewSingleChoice from '../../components/Fields/SingleChoice/PreviewSin
 import PreviewMultiChoice from '../../components/Fields/MultipleChoice/PreviewMultiChoice'
 import PreviewDropdown from '../../components/Fields/Dropdown/PreviewDropdown'
 import PreviewTwoColumns from '../../components/Fields/TwoColumns/PreviewTwoColumn'
+import { FormPreviewContext } from '../../context/FormContext'
 
-const FormPreview = ({ formData, onsubmit }: any) => {
+const FormPreview = ({ formData, onSubmit }: any) => {
   const [data, setData] = useState<Array<FormField>>([])
 
   useEffect(() => {
@@ -24,7 +25,6 @@ const FormPreview = ({ formData, onsubmit }: any) => {
   const renderSwitch = (item: FormField) => {
     const props = {
       field: item,
-      // onChange: handleChangeFormData,
       setData,
       placeholder: 'Enter',
       key: item.type,
@@ -47,16 +47,16 @@ const FormPreview = ({ formData, onsubmit }: any) => {
         return <PreviewLineBreak />
       case ToolbarItemTypes.MultipleChoice:
         return <PreviewMultiChoice {...props} />
-      // case ToolbarItemTypes.Date:
-      //   return <DateField {...props} />
       case ToolbarItemTypes.Dropdown:
         return <PreviewDropdown {...props} />
+      case ToolbarItemTypes.TwoColumns:
+        return <PreviewTwoColumns {...props} />
       // case ToolbarItemTypes.Image:
       //   return <ImageField {...props} />
       // case ToolbarItemTypes.File:
       //   return <FileField {...props} />
-      case ToolbarItemTypes.TwoColumns:
-        return <PreviewTwoColumns {...props} />
+      // case ToolbarItemTypes.Date:
+      //   return <DateField {...props} />
       default:
         return null
     }
@@ -64,35 +64,31 @@ const FormPreview = ({ formData, onsubmit }: any) => {
 
   const handleSubmit = (e: any) => {
     e.preventDefault()
-    onsubmit(data)
+    console.log('data', data)
+
+    onSubmit(data)
   }
 
   return (
-    <div style={{ background: '#efefef' }} className="py-5 form-builder">
-      <Container>
-        <div className="bg-white p-5">
-          <FormHeader />
-          <Form onSubmit={handleSubmit}>
-            {/* <PreviewSingleChoice field={{ options: [{ name: 'Aqeeb' }, { name: 'Kashif' }] }} required />
-            <PreviewMultiChoice field={{ options: [{ name: 'Aqeeb' }, { name: 'Kashif' }] }} required />
-            <PreviewDropdown 
-              field={{ options: [{ name: 'Aqeeb' }, { name: 'Kashif' }] }}
-              label="Open this dropdown!"
-              required
-            />
-            */}
-            {data &&
-              data.map((item: FormField, index: number) => (
-                <div className="my-2" key={index}>
-                  {renderSwitch(item)}
-                </div>
-              ))}
-            <Button type="submit">Submit form</Button>
-          </Form>
-          <FormFooter />
-        </div>
-      </Container>
-    </div>
+    <FormPreviewContext.Provider value={{ formData: data, setFormData: setData }}>
+      <div style={{ background: '#efefef' }} className="py-5 form-builder">
+        <Container>
+          <div className="bg-white p-5">
+            <FormHeader />
+            <Form onSubmit={handleSubmit}>
+              {data &&
+                data.map((item: FormField, index: number) => (
+                  <div className="my-2" key={index}>
+                    {renderSwitch(item)}
+                  </div>
+                ))}
+              <Button type="submit">Submit form</Button>
+            </Form>
+            <FormFooter />
+          </div>
+        </Container>
+      </div>
+    </FormPreviewContext.Provider>
   )
 }
 

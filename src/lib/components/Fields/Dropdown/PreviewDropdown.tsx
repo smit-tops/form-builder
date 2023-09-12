@@ -1,37 +1,14 @@
 import React from 'react'
 import { Form } from 'react-bootstrap'
-import useHandleChange from '../../../hook/useHandleChange'
 import { FormField } from '../../../types/fields'
+import FieldPreviewLabel from '../../FormPreview/FieldPreviewLabel'
+import useHandleChange from '../../../hook/useHandleChange'
 
 const PreviewDropdown = ({ field, setData, label, required }: any) => {
-  // const [handleSingleSelect] = useHandleChange(field, setData)
-  const handleSingleSelect = (e: any) => {
-    console.log('==>', e.target.value)
-    setData((prevData: Array<FormField>) =>
-      prevData.map((item: any) => {
-        if (item.type !== field.type) {
-          return item
-        } else {
-          return {
-            ...item,
-            options: item?.options.map((option: any) =>
-              option.value !== e.target.value ? { ...option, selected: false } : { ...option, selected: true },
-            ),
-          }
-        }
-      }),
-    )
-  }
+  const { handleSingleSelect } = useHandleChange(field)
   return (
     <div className="mb-3">
-      {field.label ? (
-        <Form.Label>
-          <div className="d-flex">
-            <div dangerouslySetInnerHTML={{ __html: field.label }}></div>
-            {required && <div className="ml-2 text-danger">*</div>}
-          </div>
-        </Form.Label>
-      ) : null}
+      <FieldPreviewLabel required={!!required} label={field.label} />
       <Form.Select aria-label={label} id={label} required={required} onChange={handleSingleSelect}>
         <option>--select--</option>
         {field.options.map((item: any, index: number) => {
